@@ -26,13 +26,10 @@ public class MainGUI extends javax.swing.JFrame {
     public MainGUI() {
         
         initComponents();
+       
         imageoverlay.overlay();
         
         ImageIcon image = new ImageIcon("./art/images/holgerCombined.png");
-        JLabel label = new JLabel("", image, JLabel.CENTER);
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.add( label, BorderLayout.CENTER );
-        
         
         jLabel_pic.setIcon(image);
     }
