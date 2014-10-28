@@ -5,7 +5,14 @@
  */
 package Tobias;
 
-import javax.sound.sampled.Clip;
+import static Tobias.ImageOverlay.overlayImages;
+import static Tobias.ImageOverlay.readImage;
+import java.awt.BorderLayout;
+import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 
 /**
  *
@@ -13,11 +20,21 @@ import javax.sound.sampled.Clip;
  */
 public class MainGUI extends javax.swing.JFrame {
     SoundPlayer player1 = new SoundPlayer();
+    ImageOverlay imageoverlay = new ImageOverlay();
     
     
     public MainGUI() {
         
         initComponents();
+        imageoverlay.overlay();
+        
+        ImageIcon image = new ImageIcon("./art/images/holgerCombined.png");
+        JLabel label = new JLabel("", image, JLabel.CENTER);
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add( label, BorderLayout.CENTER );
+        
+        
+        jLabel_pic.setIcon(image);
     }
 
     /**
@@ -31,6 +48,8 @@ public class MainGUI extends javax.swing.JFrame {
 
         jButton_play = new javax.swing.JButton();
         jButton_stop = new javax.swing.JButton();
+        jLabel_pic = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +67,19 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel_pic.setText("jLabel1");
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 163, Short.MAX_VALUE)
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 166, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -55,18 +87,29 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_play)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton_play)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel_pic))
                     .addComponent(jButton_stop))
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 357, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(336, 336, 336))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jButton_play)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_play)
+                    .addComponent(jLabel_pic))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton_stop)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addGap(110, 110, 110)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(302, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,5 +163,7 @@ public class MainGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_play;
     private javax.swing.JButton jButton_stop;
+    private javax.swing.JLabel jLabel_pic;
+    private javax.swing.JLayeredPane jLayeredPane1;
     // End of variables declaration//GEN-END:variables
 }
