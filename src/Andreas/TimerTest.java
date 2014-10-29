@@ -7,7 +7,6 @@ package Andreas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
@@ -24,7 +23,6 @@ public class TimerTest extends javax.swing.JFrame {
 
     public TimerTest() {
         initComponents();
-
     }
 
     /**
@@ -38,40 +36,49 @@ public class TimerTest extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Start");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel1.setText("Set countdown!");
+
+        jButton2.setText("Stop");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(jLabel1)))
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGap(179, 179, 179)
+                .addComponent(jButton1)
+                .addGap(79, 79, 79)
+                .addComponent(jButton2)
+                .addContainerGap(145, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(170, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addGap(115, 115, 115))
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(129, 129, 129))
         );
 
         pack();
@@ -81,31 +88,25 @@ public class TimerTest extends javax.swing.JFrame {
         setCountDown();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        timer.stop();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public void setCountDown() {
-        
-        Random random = new Random() {
-        String hehe = "lol";
-            public void heheson(){
-                System.out.println(hehe);
-            }
-                };
-        random.nextBoolean();
         ActionListener action = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
                 if (counter == 0) {
                     timer.stop();
-                    jLabel1.setText("The time is up!");
+                    jLabel1.setText("b00m headshot!");
                 } else {
-                    jLabel1.setText("Wait for " + counter + " sec");
+                    jLabel1.setText(counter + "sec");
                     counter--;
                 }
             }
         };
 
         timer = new Timer(delay, action);
-        
-
         timer.setInitialDelay(0);
         timer.start();
 
@@ -154,6 +155,7 @@ public class TimerTest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
