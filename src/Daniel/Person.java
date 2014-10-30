@@ -11,11 +11,19 @@ package Daniel;
  */
 public class Person {
     private String name;
+    private String nickname;
     private int score;
-    
-    
-    public Person (String name, int score) {
-        this.name = name;
-        this.score = score;
+
+    @Override
+    public String toString() {
+        return name + "," + nickname+ "," + score;
     }
+
+    public Person (String name, String nickname) {
+        this.name = name;
+        this.nickname = nickname;
+        this.score = 0;
+    }
+    
+    
 }

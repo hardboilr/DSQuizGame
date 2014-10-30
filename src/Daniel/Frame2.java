@@ -5,6 +5,7 @@
  */
 package Daniel;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +14,15 @@ import javax.swing.JOptionPane;
  */
 public class Frame2 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Frame2
-     */
+    private ArrayList<Person> list;
+
     public Frame2() {
         initComponents();
         setLocation(200, 100);
+        this.list = FileHandler.load("text.txt");
+//        for(Person p : list){
+//            System.out.println(p);
+//        }
     }
 
     /**
@@ -36,13 +40,19 @@ public class Frame2 extends javax.swing.JFrame {
         jTextPassword = new javax.swing.JTextField();
         jButtonLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextNickname = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelUsername.setText("Boardingnumber");
 
         jLabelPassword.setText("Password");
+
+        jTextUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextUsernameActionPerformed(evt);
+            }
+        });
 
         jTextPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +68,12 @@ public class Frame2 extends javax.swing.JFrame {
         });
 
         jLabel1.setText("Nickname");
+
+        jTextNickname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextNicknameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,7 +95,7 @@ public class Frame2 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                             .addComponent(jTextPassword)
-                            .addComponent(jTextField1))))
+                            .addComponent(jTextNickname))))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,7 +108,7 @@ public class Frame2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextNickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPassword)
@@ -111,19 +127,36 @@ public class Frame2 extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-        String name = "";
-        String password = "123456";
-        name = jTextUsername.getText();
+        String boardingNumber = "";
+        String password = "";
+        boardingNumber = jTextUsername.getText();;
 
         if (password.equals(jTextPassword.getText())) {
-            Frame1 f1 = new Frame1(name);
+            Frame1 f1 = new Frame1(boardingNumber);
             f1.setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(rootPane, "Incorrect password!");
         }
 
+        Person p = new Person(jTextUsername.getText(),jTextNickname.getText());
+
+        list.add(p);
+
+        FileHandler.savePersons(list, "text.txt");
+
+
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jTextNicknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNicknameActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextNicknameActionPerformed
+
+    private void jTextUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsernameActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextUsernameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,7 +199,7 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelUsername;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextNickname;
     private javax.swing.JTextField jTextPassword;
     private javax.swing.JTextField jTextUsername;
     // End of variables declaration//GEN-END:variables
