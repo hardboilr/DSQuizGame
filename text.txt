@@ -1,2 +1,5 @@
-Daniel 10
-Benjamin 5
+EH270, Daniel,0
+EH270, Benjamin,0
+EH280,Benjoooo,0
+TH1000,BANJO,0
+Frank,lasse,0
