@@ -1,38 +1,67 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Tobias
  */
+
 package Tobias;
 
 import static Tobias.ImageOverlay.overlayImages;
 import static Tobias.ImageOverlay.readImage;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-// test-commit to confirm everything is working!!
-//test
+import javax.swing.Timer;
 
-/**
- *
- * @author Tobias
- */
+
 public class MainGUI extends javax.swing.JFrame {
     SoundPlayer player1 = new SoundPlayer();
     ImageOverlay imageoverlay = new ImageOverlay();
+    String bg_fileName; 
+    String star_fileName; 
+    Random pos = new Random(); 
+    int posX;
+    int posY;
+    
+// timer variables
+    private JLabel label;
+    private Timer timer;
+    private int counter = 6; // the duration
+    private final int DELAY = 1000; // every 1 second
+    private boolean timeUp = false;
+   
     
     
     public MainGUI() {
         
         initComponents();
-       
-        imageoverlay.overlay();
+        //- Change background image
+        bg_fileName = "./art/images/backgroundImages/bg_london.jpg";
+        ImageIcon background = new ImageIcon(bg_fileName);
+        jLabel_background.setIcon(background);
+        //----------------------------------------------
         
-        ImageIcon image = new ImageIcon("./art/images/holgerCombined.png");
+        //-Change star image
+        star_fileName = "./art/images/icons/star.png";
+        ImageIcon star = new ImageIcon(star_fileName);
+        jLabel_star.setIcon(star);
+        //---------------------------------------------
         
-        jLabel_pic.setIcon(image);
+        //-Place star randomly on screen
+        jLabel_star.setLocation(randomPosX(), randomPosY());
+        
+        //-start countdown
+        setCountDown();
+                
+        //-check if countdown is 0
+        if (counter ==0) {
+            System.out.println("Hej");
+        }
+        
+        
     }
 
     /**
@@ -44,12 +73,26 @@ public class MainGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel_countDown = new javax.swing.JLabel();
+        jLabel_star = new javax.swing.JLabel();
         jButton_play = new javax.swing.JButton();
         jButton_stop = new javax.swing.JButton();
-        jLabel_pic = new javax.swing.JLabel();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLabel_background = new javax.swing.JLabel();
+        jButton_resetTime = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jLabel_countDown.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel_countDown.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_countDown.setText("countdown");
+        jLabel_countDown.setOpaque(true);
+        getContentPane().add(jLabel_countDown);
+        jLabel_countDown.setBounds(700, 540, 90, 30);
+
+        jLabel_star.setIcon(new javax.swing.ImageIcon("E:\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame_2\\art\\images\\icons\\star.png")); // NOI18N
+        getContentPane().add(jLabel_star);
+        jLabel_star.setBounds(390, 260, 80, 80);
 
         jButton_play.setText("PLAY");
         jButton_play.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +100,8 @@ public class MainGUI extends javax.swing.JFrame {
                 jButton_playActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton_play);
+        jButton_play.setBounds(10, 20, 57, 23);
 
         jButton_stop.setText("STOP");
         jButton_stop.addActionListener(new java.awt.event.ActionListener() {
@@ -64,51 +109,21 @@ public class MainGUI extends javax.swing.JFrame {
                 jButton_stopActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton_stop);
+        jButton_stop.setBounds(10, 50, 59, 23);
 
-        jLabel_pic.setText("jLabel1");
+        jLabel_background.setIcon(new javax.swing.ImageIcon("E:\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame_2\\art\\images\\backgroundImages\\bg_london.jpg")); // NOI18N
+        getContentPane().add(jLabel_background);
+        jLabel_background.setBounds(80, 70, 730, 510);
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 163, Short.MAX_VALUE)
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 166, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton_play)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel_pic))
-                    .addComponent(jButton_stop))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 357, Short.MAX_VALUE)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(336, 336, 336))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_play)
-                    .addComponent(jLabel_pic))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton_stop)
-                .addGap(110, 110, 110)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(302, Short.MAX_VALUE))
-        );
+        jButton_resetTime.setText("reset time");
+        jButton_resetTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_resetTimeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton_resetTime);
+        jButton_resetTime.setBounds(653, 610, 100, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -122,6 +137,11 @@ public class MainGUI extends javax.swing.JFrame {
     private void jButton_stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_stopActionPerformed
         player1.stopSound();
     }//GEN-LAST:event_jButton_stopActionPerformed
+
+    private void jButton_resetTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetTimeActionPerformed
+        timer.stop();
+        timer.restart();
+    }//GEN-LAST:event_jButton_resetTimeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,11 +177,63 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    public int randomPosX() {
+        posX = pos.nextInt(500)+30;
+        return posX;
+    }
+    
+    public int randomPosY() {
+        posY = pos.nextInt(350)+30;
+        return posY;
+    }
+    
+    public void setCountDown() {
+        ActionListener action = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                //System.out.println(counter);
+                if (counter == 0) {
+                   // timer.stop();
+                   // jLabel_countDown.setText("b00m headshot!");
+                    timeUp = true;
+                    if (timeUp == true) {
+                        jLabel_star.setLocation(randomPosX(), randomPosY());
+                        timer.restart();
+                        timeUp = false;
+                    }
+                    
+                    
+                } else {
+                    jLabel_countDown.setText(counter-1 + "sec");
+                    counter--;
+                }
+            System.out.println("Counter is: " + counter);  
+
+            } 
+            
+        };
+        
+        timer = new Timer(DELAY, action);   
+        timer.setInitialDelay(0);
+        timer.setRepeats(true);
+        timer.start();
+
+        setVisible(true);
+    }
+    
+    public void timeIsUp() {
+        jLabel_star.setLocation(randomPosX(), randomPosY());
+        timeUp = false;
+        timer.restart();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_play;
+    private javax.swing.JButton jButton_resetTime;
     private javax.swing.JButton jButton_stop;
-    private javax.swing.JLabel jLabel_pic;
-    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLabel jLabel_background;
+    private javax.swing.JLabel jLabel_countDown;
+    private javax.swing.JLabel jLabel_star;
     // End of variables declaration//GEN-END:variables
 }
