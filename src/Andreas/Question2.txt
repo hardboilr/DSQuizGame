@@ -1,8 +1,8 @@
-Question 1: How many people lives in London?
-1 million
-2 million
-3 million
-4 million
+Question 1: Which team does Hart play in?
+Arsenal
+Bolton
+Chelsea
+Manchester City
 C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\arsenal.jpg
 C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\chelsea.png
 C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\bolton.jpg
