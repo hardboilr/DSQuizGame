@@ -37,6 +37,11 @@ public class QuizControlTest {
         ArrayList hehe = new ArrayList();
         
         hehe = file.load("./questions/Question1.txt");
+        try {
+            System.out.println(hehe.get(9));
+        } catch (Exception e) {
+            System.out.println("fy fan");
+        }
     }
     
     @Test
