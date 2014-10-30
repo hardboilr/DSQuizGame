@@ -21,6 +21,8 @@ public class TimerTest extends javax.swing.JFrame {
     private int counter = 10; // the duration
     private int delay = 1000; // every 1 second
 
+    
+    TimerCountDown timerCount = new TimerCountDown();
     public TimerTest() {
         initComponents();
     }
@@ -96,6 +98,7 @@ public class TimerTest extends javax.swing.JFrame {
         ActionListener action = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
+                System.out.println(counter);
                 if (counter == 0) {
                     timer.stop();
                     jLabel1.setText("b00m headshot!");
@@ -105,8 +108,8 @@ public class TimerTest extends javax.swing.JFrame {
                 }
             }
         };
-
-        timer = new Timer(delay, action);
+        
+        timer = new Timer(delay, action);   
         timer.setInitialDelay(0);
         timer.start();
 
