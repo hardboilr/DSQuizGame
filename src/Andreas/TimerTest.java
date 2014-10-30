@@ -22,7 +22,6 @@ public class TimerTest extends javax.swing.JFrame {
     private int delay = 1000; // every 1 second
 
     
-    TimerCountDown timerCount = new TimerCountDown();
     public TimerTest() {
         initComponents();
     }
