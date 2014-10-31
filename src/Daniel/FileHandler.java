@@ -32,7 +32,7 @@ import java.util.Scanner;
      * @author Peter Lorensen
      */
 
-public class FileHandlerStat
+public class FileHandler
 {
 
     /**
@@ -61,20 +61,22 @@ public class FileHandlerStat
             String[] personAtt = null;
 
             try {
-                personAtt = file_scanner.next().split(",");
+                String person = file_scanner.nextLine();
+                //System.out.println(person);
+                personAtt = person.split(",");
             } catch (NoSuchElementException e) {
                 file_scanner.close();
                 System.out.println("Size: " + stringArray.size());
                 return stringArray;
             }   
 
-            int num1 = Integer.parseInt(personAtt[1]);
-            int num2 = Integer.parseInt(personAtt[2]);
-            int num3 = Integer.parseInt(personAtt[3]);
-            int num4 = Integer.parseInt(personAtt[4]);
+//            int num1 = Integer.parseInt(personAtt[1]);
+//            int num2 = Integer.parseInt(personAtt[2]);
+//            int num3 = Integer.parseInt(personAtt[3]);
+//            int num4 = Integer.parseInt(personAtt[4]);
 
-            Person p = new Person(personAtt[0], num1, num2, num3, num3);
-            System.out.println(p);
+            Person p = new Person(personAtt[0], personAtt[1]);
+            //System.out.println(p);
             stringArray.add(p); //Reading in a single line and saving in the ArrayList
         }
 

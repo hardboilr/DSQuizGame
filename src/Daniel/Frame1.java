@@ -11,7 +11,7 @@ package Daniel;
  */
 public class Frame1 extends javax.swing.JFrame {
 
-    String para;
+    String name;
     /**
      * Creates new form Frame1
      */
@@ -19,10 +19,10 @@ public class Frame1 extends javax.swing.JFrame {
         initComponents();
     }
 
-    public Frame1(String name) {
+    public Frame1(String boardingNumber) {
         initComponents();
-        para = name;
-        jLabelWelcome.setText("Hello " + name + ", welcome onboard!");
+        boardingNumber = boardingNumber;
+        jLabelWelcome.setText("Hello " + boardingNumber + ", welcome onboard!");
         setLocation(300, 300);
     }
 

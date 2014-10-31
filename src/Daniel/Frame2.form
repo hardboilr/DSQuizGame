@@ -41,7 +41,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTextUsername" pref="68" max="32767" attributes="0"/>
                           <Component id="jTextPassword" max="32767" attributes="0"/>
-                          <Component id="jTextField1" max="32767" attributes="0"/>
+                          <Component id="jTextNickname" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -60,7 +60,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextNickname" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -86,6 +86,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextUsername">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextUsernameActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextPassword">
       <Events>
@@ -105,7 +108,10 @@
         <Property name="text" type="java.lang.String" value="Nickname"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="jTextNickname">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNicknameActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
