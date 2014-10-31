@@ -29,7 +29,8 @@ public class MainGUI extends javax.swing.JFrame {
 // timer variables
     private JLabel label;
     private Timer timer;
-    private int counter = 6; // the duration
+    private final int COUNT_TIME = 4;
+    private int counter; // the duration
     private final int DELAY = 1000; // every 1 second
     private boolean timeUp = false;
    
@@ -56,11 +57,6 @@ public class MainGUI extends javax.swing.JFrame {
         //-start countdown
         setCountDown();
                 
-        //-check if countdown is 0
-        if (counter ==0) {
-            System.out.println("Hej");
-        }
-        
         
     }
 
@@ -90,7 +86,11 @@ public class MainGUI extends javax.swing.JFrame {
         getContentPane().add(jLabel_countDown);
         jLabel_countDown.setBounds(700, 540, 90, 30);
 
-        jLabel_star.setIcon(new javax.swing.ImageIcon("E:\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame_2\\art\\images\\icons\\star.png")); // NOI18N
+        jLabel_star.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_starMouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel_star);
         jLabel_star.setBounds(390, 260, 80, 80);
 
@@ -111,8 +111,6 @@ public class MainGUI extends javax.swing.JFrame {
         });
         getContentPane().add(jButton_stop);
         jButton_stop.setBounds(10, 50, 59, 23);
-
-        jLabel_background.setIcon(new javax.swing.ImageIcon("E:\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame_2\\art\\images\\backgroundImages\\bg_london.jpg")); // NOI18N
         getContentPane().add(jLabel_background);
         jLabel_background.setBounds(80, 70, 730, 510);
 
@@ -139,9 +137,12 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_stopActionPerformed
 
     private void jButton_resetTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetTimeActionPerformed
-        timer.stop();
         timer.restart();
     }//GEN-LAST:event_jButton_resetTimeActionPerformed
+
+    private void jLabel_starMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_starMouseClicked
+        //when cliked then start quiz
+    }//GEN-LAST:event_jLabel_starMouseClicked
 
     /**
      * @param args the command line arguments
@@ -192,40 +193,36 @@ public class MainGUI extends javax.swing.JFrame {
         ActionListener action = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                //System.out.println(counter);
+                timeUp = false;
+                System.out.println("TimeUp is: " + timeUp);
                 if (counter == 0) {
-                   // timer.stop();
-                   // jLabel_countDown.setText("b00m headshot!");
                     timeUp = true;
-                    if (timeUp == true) {
-                        jLabel_star.setLocation(randomPosX(), randomPosY());
-                        timer.restart();
-                        timeUp = false;
-                    }
-                    
+                    System.out.println("TimeUp is: " + timeUp);
+                    jLabel_countDown.setText("Time is up!");
+                    jLabel_star.setLocation(randomPosX(), randomPosY());
+                    counter = COUNT_TIME;
                     
                 } else {
                     jLabel_countDown.setText(counter-1 + "sec");
                     counter--;
                 }
             System.out.println("Counter is: " + counter);  
-
             } 
-            
         };
         
+        counter = COUNT_TIME;
         timer = new Timer(DELAY, action);   
         timer.setInitialDelay(0);
         timer.setRepeats(true);
         timer.start();
-
         setVisible(true);
     }
     
     public void timeIsUp() {
-        jLabel_star.setLocation(randomPosX(), randomPosY());
+        //jLabel_star.setLocation(randomPosX(), randomPosY());
+        timer.stop();
         timeUp = false;
-        timer.restart();
+        //timer.restart();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
