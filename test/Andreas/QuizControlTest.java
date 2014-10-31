@@ -6,6 +6,7 @@
 package Andreas;
 
 import java.util.ArrayList;
+import java.util.Random;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,7 +23,7 @@ public class QuizControlTest {
     public void testSomeMethod() {
         QuizControl quiz = new QuizControl();
         
-        quiz.getFile("C:\\Users\\Andreas Styltsvig\\Documents\\NetBeansProjects\\JavaApplication24\\src\\Andreas\\Question1.txt");
+        quiz.getFile("./questions/Question1.txt");
         
         assertTrue(quiz.getAnswer().get(0).equals("1 million"));
         assertTrue(quiz.getQuestion().equals("How many people lives in London?"));
@@ -35,8 +36,12 @@ public class QuizControlTest {
         FileHandler file = new FileHandler();
         ArrayList hehe = new ArrayList();
         
-        hehe = file.load("C:\\Users\\Andreas Styltsvig\\Documents\\NetBeansProjects\\JavaApplication24\\src\\Andreas\\Question1.txt");
-        System.out.println(hehe.get(5));
+        hehe = file.load("./questions/Question1.txt");
     }
     
+    @Test
+    public void testRandom(){
+        Random random = new Random();
+        
+    }
 }

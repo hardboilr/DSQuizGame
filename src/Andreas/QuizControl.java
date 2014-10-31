@@ -22,15 +22,18 @@ public class QuizControl {
         file = new ArrayList();
         answer = new ArrayList();
         pictureURL = new ArrayList();
-        
+        String nullstring = null;
         file = fileHandler.load(filename);
         question = file.get(0).substring(file.get(0).indexOf(":")+2, file.get(0).indexOf("?")+1);
         
         for (int i = 0; i < 4; i++) { 
             answer.add(file.get(i+1));
         }
-        for (int i = 0; i < 4; i++) { 
-            pictureURL.add(file.get(i+5));
+        for (int i = 0; i < 4; i++) {
+            if(file.get(i+5) == "")
+                pictureURL.add(nullstring);
+            else
+                pictureURL.add(file.get(i+5));
         }
         
         
@@ -47,9 +50,11 @@ public class QuizControl {
     }
     
     public String getRandomFile(){
-        String randomFile = "Question"+random.ints(2).toString();
+        String randomFile = "./questions/Question"+Integer.toString(random.nextInt(2)+1)+".txt";
         return randomFile;
     }
+    
+    
     
     public ArrayList<String> getURLS(){
         return pictureURL;

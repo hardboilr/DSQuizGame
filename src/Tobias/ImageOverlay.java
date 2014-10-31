@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
-
+//test
 public class ImageOverlay {
 
     public static BufferedImage overlayImages (BufferedImage bgImage, BufferedImage fgImage) 

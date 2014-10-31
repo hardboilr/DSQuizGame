@@ -23,7 +23,7 @@ public class QuizGUI2 extends javax.swing.JFrame {
     public QuizGUI2() {
         quiz = new QuizControl();
         initComponents();
-        setQuiz("C:\\Users\\Andreas Styltsvig\\Documents\\NetBeansProjects\\JavaApplication24\\src\\Andreas\\Question1.txt");
+        setQuiz();
     }
 
     /**
@@ -99,16 +99,16 @@ public class QuizGUI2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNextActionPerformed
-        setQuiz("C:\\Users\\Andreas Styltsvig\\Documents\\NetBeansProjects\\JavaApplication24\\src\\Andreas\\Question2.txt");
+        setQuiz();
     }//GEN-LAST:event_jNextActionPerformed
 
     /**
      * @param args the command line arguments
      */
     
-    public void setQuiz(String filename){
+    public void setQuiz(){
         
-        quiz.getFile(filename);
+        quiz.getFile(quiz.getRandomFile());
         
         jQuestion.setText(quiz.getQuestion());
         jAnswer1.setText(quiz.getAnswer().get(0));
@@ -123,7 +123,6 @@ public class QuizGUI2 extends javax.swing.JFrame {
         jPictureLabel2.setIcon(selectImage2);
         
         ImageIcon selectImage3 = new ImageIcon(quiz.getURLS().get(2));
-        
         jPictureLabel3.setIcon(selectImage3);
         
         ImageIcon selectImage4 = new ImageIcon(quiz.getURLS().get(0));
