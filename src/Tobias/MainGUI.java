@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import Andreas.QuizGUI2;
+
 
 public class MainGUI extends javax.swing.JFrame {
     SoundPlayer player1 = new SoundPlayer();
@@ -77,6 +79,8 @@ public class MainGUI extends javax.swing.JFrame {
         jButton_resetTime = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel_countDown.setBackground(new java.awt.Color(255, 255, 255));
@@ -141,7 +145,10 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_resetTimeActionPerformed
 
     private void jLabel_starMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_starMouseClicked
-        //when cliked then start quiz
+        System.out.println("Star clicked!");
+        QuizGUI2 quiz = new QuizGUI2();
+        quiz.setVisible(true);
+       // quiz.
     }//GEN-LAST:event_jLabel_starMouseClicked
 
     /**
