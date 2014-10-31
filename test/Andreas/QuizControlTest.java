@@ -38,7 +38,7 @@ public class QuizControlTest {
         
         hehe = file.load("./questions/Question1.txt");
         try {
-            System.out.println(hehe.get(9));
+           // System.out.println(hehe.get(9));
         } catch (Exception e) {
             System.out.println("fy fan");
         }
@@ -47,6 +47,15 @@ public class QuizControlTest {
     @Test
     public void testRandom(){
         Random random = new Random();
+        
+    }
+    
+    @Test
+    public void testRightAnser(){
+        QuizControl quiz = new QuizControl();
+        quiz.getFile(quiz.getRandomFile());
+        System.out.println(quiz.getQuestion());
+        System.out.println(quiz.getRightAnswer());
         
     }
 }

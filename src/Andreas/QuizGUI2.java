@@ -6,7 +6,9 @@
 
 package Andreas;
 
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
+import sun.nio.cs.ext.TIS_620;
 
 
 /**
@@ -16,7 +18,9 @@ import javax.swing.ImageIcon;
 
 public class QuizGUI2 extends javax.swing.JFrame {
     
+    int answerRight = 0;
     QuizControl quiz;
+    
     /**
      * Creates new form QuizGUI2
      */
@@ -99,7 +103,8 @@ public class QuizGUI2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNextActionPerformed
-        setQuiz();
+        
+        this.setVisible(false);
     }//GEN-LAST:event_jNextActionPerformed
 
     /**
