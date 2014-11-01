@@ -1,23 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Tobias
  */
 package Tobias;
 
-import java.awt.BorderLayout;
-
-
-/**
- *
- * @author Tobias
- */
 public class QuizEngine {
     
-public QuizEngine() {
-   
+    private int round = 10;
+
+    public QuizEngine() {
+
+    }
     
+    public int getRound() {
+        return round;
+    }
     
-}   
-    
+    public int subtractRound(int input) {
+        round = round + input;
+        return round;
+    }
+
 }

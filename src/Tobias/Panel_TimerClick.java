@@ -17,8 +17,7 @@ import javax.swing.ImageIcon;
 public class Panel_TimerClick extends javax.swing.JPanel {
     
     SoundPlayer player1 = new SoundPlayer();
-    Round round = new Round();
-    ImageOverlay imageoverlay = new ImageOverlay();
+    QuizEngine quizengine = new QuizEngine();
     String bg_fileName; 
     String star_fileName; 
     Random pos = new Random(); 
@@ -66,7 +65,8 @@ public class Panel_TimerClick extends javax.swing.JPanel {
                 timeUp = false;
                 System.out.println("TimeUp is: " + timeUp);
                 if (counter == 0) {
-                    round.subtractRound(-1);
+                    quizengine.subtractRound(-1);
+                    System.out.println("Round: " + quizengine.getRound());
                     timeUp = true;
                     System.out.println("TimeUp is: " + timeUp);
                     jLabel_countDown.setText("Time is up!");
@@ -77,7 +77,7 @@ public class Panel_TimerClick extends javax.swing.JPanel {
                     jLabel_countDown.setText(counter-1 + "sec");
                     counter--;
                 }
-            System.out.println("Counter is: " + counter);  
+            //System.out.println("Counter is: " + counter);  
             } 
         };
         

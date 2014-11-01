@@ -4,6 +4,7 @@
 package Tobias;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class Panel_CharacterSelection extends javax.swing.JPanel {
     
@@ -19,15 +20,18 @@ public class Panel_CharacterSelection extends javax.swing.JPanel {
     private final ImageIcon child_entered_icon = new ImageIcon ("./art/images/character/child_1_entered.png");
     private final ImageIcon child_selected_icon = new ImageIcon ("./art/images/character/child_1_selected.png");
     
-    ImageIcon womanIcon = null;
-    ImageIcon childIcon = null;
-    
     private Boolean man_selected = false;
     private Boolean woman_selected = false;
     private Boolean child_selected = false;
 
     public Panel_CharacterSelection() {
         initComponents();
+        GUI_Main.jLabelTest = new JLabel();
+        //init icons
+        jLabel_man.setIcon(man_unselected_icon);
+        jLabel_woman.setIcon(woman_unselected_icon);
+        jLabel_child.setIcon(child_unselected_icon);
+        
     }
 
     /**
@@ -144,6 +148,7 @@ public class Panel_CharacterSelection extends javax.swing.JPanel {
         man_selected = true;
         woman_selected = false;
         child_selected = false;
+        GUI_Main.jLabel_next.setVisible(true);
     }//GEN-LAST:event_jLabel_manMousePressed
 
     private void jLabel_womanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_womanMouseEntered
@@ -165,6 +170,7 @@ public class Panel_CharacterSelection extends javax.swing.JPanel {
         woman_selected = true;
         man_selected = false;
         child_selected = false;
+        GUI_Main.jLabel_next.setVisible(true);
     }//GEN-LAST:event_jLabel_womanMousePressed
 
     private void jLabel_childMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_childMouseEntered
@@ -186,6 +192,7 @@ public class Panel_CharacterSelection extends javax.swing.JPanel {
         child_selected = true;
         man_selected = false;
         woman_selected = false;
+        GUI_Main.jLabel_next.setVisible(true);
 
     }//GEN-LAST:event_jLabel_childMousePressed
 

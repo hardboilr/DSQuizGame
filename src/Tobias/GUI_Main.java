@@ -5,7 +5,9 @@ package Tobias;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 
 public class GUI_Main extends javax.swing.JFrame {
@@ -17,13 +19,26 @@ public class GUI_Main extends javax.swing.JFrame {
     Panel_QuizRules quizrules;
     Panel_CharacterSelection characterselection;
     Panel_TimerClick timerclick;
+    Panel_Highscore highscore;
+    
+    public static JLabel jLabelTest; 
     
     int currentPanel = 0;
     
     public GUI_Main() {
+        
+        jLabelTest =  new JLabel(next_unselected_icon);
+        
+        //init icons
+        try {
+        jLabel_next.setIcon(next_unselected_icon);
+        } catch (NullPointerException e) {
+            System.out.println("Something wierd just happened!");
+        }
+            
         initComponents();
         getContentPane().setBackground(Color.orange);
-        jLabel_next.setVisible(true);
+        //jLabel_next.setVisible(true);
         
        // GUI_Main main = new GUI_Main();
         intro = new Panel_Intro();
@@ -55,7 +70,7 @@ public class GUI_Main extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel_next.setIcon(new javax.swing.ImageIcon("E:\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\next_unselected.png")); // NOI18N
+        jLabel_next.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\next_unselected.png")); // NOI18N
         jLabel_next.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel_nextMouseClicked(evt);
@@ -68,7 +83,7 @@ public class GUI_Main extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel_next);
-        jLabel_next.setBounds(670, 460, 70, 70);
+        jLabel_next.setBounds(650, 460, 110, 70);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,6 +112,7 @@ public class GUI_Main extends javax.swing.JFrame {
                 this.add(characterselection);
                 characterselection.setVisible(true);
                 intro.setVisible(false);
+                jLabel_next.setVisible(false);
                 break;
             case 2: //QuizRules
                 System.out.println("Case 2!");
@@ -111,8 +127,12 @@ public class GUI_Main extends javax.swing.JFrame {
                 this.add(timerclick);
                 quizrules.setVisible(false);
                 timerclick.setVisible(true);
+                jLabel_next.setVisible(false);
                 break;
-                
+            case 4: //Game-statistics
+            case 5: //Highscore    
+                System.out.println("Case 5!");
+                highscore = new Panel_Highscore();
         }
        
             
@@ -154,9 +174,13 @@ public class GUI_Main extends javax.swing.JFrame {
         });
     }
     
+    public void getJlabel_next() {
+        
+    }
+    
     //public void
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel jLabel_next;
+    public static javax.swing.JLabel jLabel_next;
     // End of variables declaration//GEN-END:variables
 }
