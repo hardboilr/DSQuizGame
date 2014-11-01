@@ -36,7 +36,7 @@ public class QuizControl {
 
         for (int i = 0; i < 4; i++) {
             try {
-                answer.add(file.get(i + 1));
+                answer.add(file.get(i + 1).replaceAll("\\(r", "").replaceAll("\\)", ""));
             } catch (Exception e) {
                 System.out.println(e);
             }

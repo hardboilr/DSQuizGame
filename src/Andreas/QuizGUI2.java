@@ -8,7 +8,6 @@ package Andreas;
 
 import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
-import sun.nio.cs.ext.TIS_620;
 
 
 /**
@@ -40,7 +39,6 @@ public class QuizGUI2 extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jVideoPanel = new javax.swing.JPanel();
         jQuestion = new javax.swing.JLabel();
         jAnswer1 = new javax.swing.JRadioButton();
         jAnswer2 = new javax.swing.JRadioButton();
@@ -53,39 +51,26 @@ public class QuizGUI2 extends javax.swing.JFrame {
         jPictureLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 1000));
+        setMinimumSize(new java.awt.Dimension(500, 700));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         setPreferredSize(new java.awt.Dimension(500, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jVideoPanelLayout = new javax.swing.GroupLayout(jVideoPanel);
-        jVideoPanel.setLayout(jVideoPanelLayout);
-        jVideoPanelLayout.setHorizontalGroup(
-            jVideoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        jVideoPanelLayout.setVerticalGroup(
-            jVideoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jVideoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 700, 310));
-
-        jQuestion.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        getContentPane().add(jQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
+        jQuestion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(jQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 630, 200));
 
         buttonGroup1.add(jAnswer1);
-        getContentPane().add(jAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 640, -1, -1));
+        getContentPane().add(jAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, -1));
 
         buttonGroup1.add(jAnswer2);
-        getContentPane().add(jAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 640, -1, -1));
+        getContentPane().add(jAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, -1));
 
         buttonGroup1.add(jAnswer3);
-        getContentPane().add(jAnswer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 870, -1, -1));
+        getContentPane().add(jAnswer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 630, -1, -1));
 
         buttonGroup1.add(jAnswer4);
-        getContentPane().add(jAnswer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 870, -1, -1));
+        getContentPane().add(jAnswer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 630, -1, -1));
 
         jNext.setText("Next");
         jNext.addActionListener(new java.awt.event.ActionListener() {
@@ -93,17 +78,30 @@ public class QuizGUI2 extends javax.swing.JFrame {
                 jNextActionPerformed(evt);
             }
         });
-        getContentPane().add(jNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 960, -1, -1));
-        getContentPane().add(jPictureLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 740, -1, -1));
-        getContentPane().add(jPictureLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 510, -1, -1));
-        getContentPane().add(jPictureLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, -1, -1));
-        getContentPane().add(jPictureLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 740, -1, -1));
+        getContentPane().add(jNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, -1, -1));
+        getContentPane().add(jPictureLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 130, 170));
+        getContentPane().add(jPictureLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 140, 170));
+        getContentPane().add(jPictureLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 150, 170));
+        getContentPane().add(jPictureLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 120, 170));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private boolean compareButtonAndRightAnswer(){
+        if(jAnswer1.isSelected())
+            return jAnswer1.getText().equals(quiz.getRightAnswer());
+        if(jAnswer2.isSelected())
+            return jAnswer2.getText().equals(quiz.getRightAnswer());
+        if(jAnswer3.isSelected())
+            return jAnswer3.getText().equals(quiz.getRightAnswer());
+        if(jAnswer4.isSelected())
+            return jAnswer4.getText().equals(quiz.getRightAnswer());
+        return false;
+    }
+    
     private void jNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNextActionPerformed
-        
+        compareButtonAndRightAnswer();
         this.setVisible(false);
     }//GEN-LAST:event_jNextActionPerformed
 
@@ -177,6 +175,5 @@ public class QuizGUI2 extends javax.swing.JFrame {
     private javax.swing.JLabel jPictureLabel3;
     private javax.swing.JLabel jPictureLabel4;
     private javax.swing.JLabel jQuestion;
-    private javax.swing.JPanel jVideoPanel;
     // End of variables declaration//GEN-END:variables
 }
