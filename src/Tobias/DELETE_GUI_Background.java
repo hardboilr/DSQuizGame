@@ -19,8 +19,9 @@ import javax.swing.Timer;
 import Andreas.QuizGUI2;
 
 
-public class MainGUI extends javax.swing.JFrame {
+public class DELETE_GUI_Background extends javax.swing.JFrame {
     SoundPlayer player1 = new SoundPlayer();
+    Round round = new Round();
     ImageOverlay imageoverlay = new ImageOverlay();
     String bg_fileName; 
     String star_fileName; 
@@ -38,9 +39,13 @@ public class MainGUI extends javax.swing.JFrame {
    
     
     
-    public MainGUI() {
+    public DELETE_GUI_Background() {
         
         initComponents();
+        
+        //-Place star randomly on screen
+        jLabel_star.setLocation(randomPosX(), randomPosY());
+        
         //- Change background image
         bg_fileName = "./art/images/backgroundImages/bg_london.jpg";
         ImageIcon background = new ImageIcon(bg_fileName);
@@ -53,12 +58,15 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel_star.setIcon(star);
         //---------------------------------------------
         
-        //-Place star randomly on screen
-        jLabel_star.setLocation(randomPosX(), randomPosY());
+        
         
         //-start countdown
         setCountDown();
-                
+        
+        /*player1.loadSound("./art/sound/ItsBeenSoLong.wav");
+        player1.playSound();
+        player1.stopSound(); */
+
         
     }
 
@@ -73,82 +81,41 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel_countDown = new javax.swing.JLabel();
         jLabel_star = new javax.swing.JLabel();
-        jButton_play = new javax.swing.JButton();
-        jButton_stop = new javax.swing.JButton();
         jLabel_background = new javax.swing.JLabel();
-        jButton_resetTime = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel_countDown.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel_countDown.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_countDown.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel_countDown.setFont(new java.awt.Font("Tunga", 0, 24)); // NOI18N
+        jLabel_countDown.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_countDown.setText("countdown");
         jLabel_countDown.setOpaque(true);
         getContentPane().add(jLabel_countDown);
-        jLabel_countDown.setBounds(700, 540, 90, 30);
+        jLabel_countDown.setBounds(690, 530, 100, 30);
 
+        jLabel_star.setIcon(new javax.swing.ImageIcon("E:\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\star.png")); // NOI18N
         jLabel_star.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel_starMouseClicked(evt);
             }
         });
         getContentPane().add(jLabel_star);
-        jLabel_star.setBounds(390, 260, 80, 80);
+        jLabel_star.setBounds(340, 260, 60, 70);
 
-        jButton_play.setText("PLAY");
-        jButton_play.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_playActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton_play);
-        jButton_play.setBounds(10, 20, 57, 23);
-
-        jButton_stop.setText("STOP");
-        jButton_stop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_stopActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton_stop);
-        jButton_stop.setBounds(10, 50, 59, 23);
+        jLabel_background.setIcon(new javax.swing.ImageIcon("E:\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\backgroundImages\\bg_london.jpg")); // NOI18N
         getContentPane().add(jLabel_background);
-        jLabel_background.setBounds(80, 70, 730, 510);
-
-        jButton_resetTime.setText("reset time");
-        jButton_resetTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_resetTimeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton_resetTime);
-        jButton_resetTime.setBounds(653, 610, 100, 23);
+        jLabel_background.setBounds(0, 0, 800, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton_playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_playActionPerformed
-        
-       player1.loadSound("./art/sound/ItsBeenSoLong.wav");
-       player1.playSound();
-    }//GEN-LAST:event_jButton_playActionPerformed
-
-    private void jButton_stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_stopActionPerformed
-        player1.stopSound();
-    }//GEN-LAST:event_jButton_stopActionPerformed
-
-    private void jButton_resetTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetTimeActionPerformed
-        timer.restart();
-    }//GEN-LAST:event_jButton_resetTimeActionPerformed
 
     private void jLabel_starMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_starMouseClicked
         System.out.println("Star clicked!");
         QuizGUI2 quiz = new QuizGUI2();
         quiz.setVisible(true);
-       // quiz.
     }//GEN-LAST:event_jLabel_starMouseClicked
 
     /**
@@ -168,31 +135,38 @@ public class MainGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DELETE_GUI_Background.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DELETE_GUI_Background.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DELETE_GUI_Background.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DELETE_GUI_Background.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainGUI().setVisible(true);
+                new DELETE_GUI_Background().setVisible(true);
             }
         });
     }
     
     public int randomPosX() {
-        posX = pos.nextInt(500)+30;
+        posX = pos.nextInt(700)+30;
         return posX;
     }
     
     public int randomPosY() {
-        posY = pos.nextInt(350)+30;
+        posY = pos.nextInt(500)+30;
         return posY;
     }
     
@@ -203,6 +177,7 @@ public class MainGUI extends javax.swing.JFrame {
                 timeUp = false;
                 System.out.println("TimeUp is: " + timeUp);
                 if (counter == 0) {
+                    round.subtractRound(-1);
                     timeUp = true;
                     System.out.println("TimeUp is: " + timeUp);
                     jLabel_countDown.setText("Time is up!");
@@ -233,9 +208,6 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_play;
-    private javax.swing.JButton jButton_resetTime;
-    private javax.swing.JButton jButton_stop;
     private javax.swing.JLabel jLabel_background;
     private javax.swing.JLabel jLabel_countDown;
     private javax.swing.JLabel jLabel_star;
