@@ -17,12 +17,12 @@ import javax.swing.ImageIcon;
 
 public class QuizGUI2 extends javax.swing.JFrame {
     
-    int answerRight = 0;
     QuizControl quiz;
     
     /**
      * Creates new form QuizGUI2
      */
+    
     public QuizGUI2() {
         quiz = new QuizControl();
         initComponents();
@@ -101,8 +101,8 @@ public class QuizGUI2 extends javax.swing.JFrame {
     }
     
     private void jNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNextActionPerformed
-        compareButtonAndRightAnswer();
-        this.setVisible(false);
+        if(compareButtonAndRightAnswer())
+            this.setVisible(false);
     }//GEN-LAST:event_jNextActionPerformed
 
     /**
@@ -128,7 +128,7 @@ public class QuizGUI2 extends javax.swing.JFrame {
         ImageIcon selectImage3 = new ImageIcon(quiz.getURLS().get(2));
         jPictureLabel3.setIcon(selectImage3);
         
-        ImageIcon selectImage4 = new ImageIcon(quiz.getURLS().get(0));
+        ImageIcon selectImage4 = new ImageIcon(quiz.getURLS().get(3));
         jPictureLabel4.setIcon(selectImage4);
         }
     public static void main(String args[]) {

@@ -1,0 +1,9 @@
+Question 4: Which London team's fans are seen in the movie?
+(r)
+
+
+
+.\art\images\resized\Arsenal.jpg
+.\art\images\resized\Chelsea-Fc-Logo.png
+.\art\images\resized\Tottenham.png
+.\art\images\resized\West_Ham_United_FC.svg.png

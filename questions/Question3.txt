@@ -1,9 +1,9 @@
-Question 3: Are you a faggot?
-Yes
-Yes
-Yes
-Yes(r)
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\arsenal.jpg
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\chelsea.png
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\bolton.jpg
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\manchester_city.png
+Question 3: Which currency is used in England?
+Pound(r)
+Rupiah
+Dollar
+Bath
+.\art\images\resized\Pund.jpg
+.\art\images\resized\Rupiah.jpg
+.\art\images\resized\Dollar.jpg
+.\art\images\resized\Bath.jpg

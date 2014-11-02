@@ -2,8 +2,8 @@ Question 1: Which team does Hart play in?
 Arsenal
 Bolton
 Chelsea
-Manchester City(R)
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\arsenal.jpg
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\chelsea.png
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\bolton.jpg
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\manchester_city.png
+Manchester City(r)
+.\art\images\arsenal.jpg
+.\art\images\chelsea.png
+.\art\images\bolton.jpg
+.\art\images\manchester_city.png

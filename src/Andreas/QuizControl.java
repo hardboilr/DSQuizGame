@@ -27,7 +27,7 @@ public class QuizControl {
         file = fileHandler.load(filename);
         question = file.get(0).substring(file.get(0).indexOf(":") + 2, file.get(0).indexOf("?") + 1);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 1; i < 5; i++) {
             if (file.get(i).contains("(r)")) {
                 rightAnswer = file.get(i).substring(0, file.get(i).indexOf("("));
             }
@@ -65,7 +65,7 @@ public class QuizControl {
     }
 
     public String getRandomFile() {
-        String randomFile = "./questions/Question" + Integer.toString(random.nextInt(2) + 1) + ".txt";
+        String randomFile = "./questions/Question"+ Integer.toString(random.nextInt(5) + 1) + ".txt";
         /*if(questionUsed.contains(randomFile))
          getRandomFile();
          else

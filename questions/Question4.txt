@@ -1,0 +1,9 @@
+Question 4: Who is the Queen of England?
+Elizabeth II (r)
+Anne-Marie
+Sonja
+Silvia
+.\art\images\resized\Queen-Elizabeth-II.jpg
+.\art\images\resized\Anne-Marie.jpg
+.\art\images\resized\Sonja.jpg
+.\art\images\resized\Silvia.jpg
