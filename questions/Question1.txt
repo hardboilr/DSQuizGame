@@ -3,7 +3,3 @@ Question 1: How many people lives in London?
 2 million
 3 million(r)
 4 million
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\arsenal.jpg
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\chelsea.png
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\bolton.jpg
-C:\Users\Andreas Styltsvig\Documents\NetBeansProjects\JavaApplication24\art\images\manchester_city.png
