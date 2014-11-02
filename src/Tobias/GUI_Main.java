@@ -143,8 +143,6 @@ public class GUI_Main extends javax.swing.JFrame {
                 if (password.equals(boardingNumber)) 
                 {
                     System.out.println("Password correct");
-                    //Person p = new Person(boardingNumber, nickname);
-                    //System.out.println(p);
 
                     //go on to character selection
                     characterselection = new Panel_CharacterSelection();
@@ -161,6 +159,7 @@ public class GUI_Main extends javax.swing.JFrame {
                 }
                 break;
             case 3: //QuizRules
+                //Add person object
                 Person p = new Person(boardingNumber, nickname, characterselection.getType());
                 System.out.println(characterselection.getType());
                 System.out.println(p);

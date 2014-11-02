@@ -208,9 +208,7 @@ public class Panel_CharacterSelection extends javax.swing.JPanel {
             return type;
         } else if (child_selected == true) {
             type = "child";
-
         }
-        System.out.println("Type is:" + type);
         return type;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
