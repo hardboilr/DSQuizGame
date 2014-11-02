@@ -44,11 +44,6 @@ public class QuizControlTest {
         }
     }
     
-    @Test
-    public void testRandom(){
-        Random random = new Random();
-        
-    }
     
     @Test
     public void testRightAnser(){

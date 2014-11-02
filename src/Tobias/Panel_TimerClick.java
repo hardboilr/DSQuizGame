@@ -10,7 +10,7 @@ import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-import Andreas.QuizGUI2;
+import Andreas.Backup.QuizGUI2;
 import javax.swing.ImageIcon;
 
 

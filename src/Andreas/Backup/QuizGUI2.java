@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 
-package Andreas;
 
+package Andreas.Backup;
+
+import Andreas.QuizControl;
+import java.net.URL;
 import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
-
 
 /**
  *
@@ -16,15 +18,14 @@ import javax.swing.ImageIcon;
  */
 
 public class QuizGUI2 extends javax.swing.JFrame {
-    
+
     QuizControl quiz;
-    
+
     /**
      * Creates new form QuizGUI2
      */
-    
-    public QuizGUI2() {
-        quiz = new QuizControl();
+    public QuizGUI2(QuizControl quiz) {
+        this.quiz = quiz;
         initComponents();
         setQuiz();
     }
@@ -49,28 +50,28 @@ public class QuizGUI2 extends javax.swing.JFrame {
         jPictureLabel2 = new javax.swing.JLabel();
         jPictureLabel1 = new javax.swing.JLabel();
         jPictureLabel3 = new javax.swing.JLabel();
+        jMainImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(500, 700));
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
-        setPreferredSize(new java.awt.Dimension(500, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jQuestion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(jQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 630, 200));
+        getContentPane().add(jQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 600, 80));
 
         buttonGroup1.add(jAnswer1);
-        getContentPane().add(jAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, -1));
+        getContentPane().add(jAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
 
         buttonGroup1.add(jAnswer2);
-        getContentPane().add(jAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, -1));
+        getContentPane().add(jAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
 
         buttonGroup1.add(jAnswer3);
-        getContentPane().add(jAnswer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 630, -1, -1));
+        getContentPane().add(jAnswer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, -1, -1));
 
         buttonGroup1.add(jAnswer4);
-        getContentPane().add(jAnswer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 630, -1, -1));
+        getContentPane().add(jAnswer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 550, -1, -1));
 
         jNext.setText("Next");
         jNext.addActionListener(new java.awt.event.ActionListener() {
@@ -78,59 +79,79 @@ public class QuizGUI2 extends javax.swing.JFrame {
                 jNextActionPerformed(evt);
             }
         });
-        getContentPane().add(jNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, -1, -1));
-        getContentPane().add(jPictureLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 130, 170));
-        getContentPane().add(jPictureLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 140, 170));
-        getContentPane().add(jPictureLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 150, 170));
-        getContentPane().add(jPictureLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 120, 170));
+        getContentPane().add(jNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 540, 80, -1));
+        getContentPane().add(jPictureLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 140, 140));
+        getContentPane().add(jPictureLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 140, 140));
+        getContentPane().add(jPictureLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 140, 140));
+        getContentPane().add(jPictureLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 140, 140));
+        getContentPane().add(jMainImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    private boolean compareButtonAndRightAnswer(){
-        if(jAnswer1.isSelected())
+    private boolean compareButtonAndRightAnswer() {
+        if (jAnswer1.isSelected()) {
             return jAnswer1.getText().equals(quiz.getRightAnswer());
-        if(jAnswer2.isSelected())
+        }
+        if (jAnswer2.isSelected()) {
             return jAnswer2.getText().equals(quiz.getRightAnswer());
-        if(jAnswer3.isSelected())
+        }
+        if (jAnswer3.isSelected()) {
             return jAnswer3.getText().equals(quiz.getRightAnswer());
-        if(jAnswer4.isSelected())
+        }
+        if (jAnswer4.isSelected()) {
             return jAnswer4.getText().equals(quiz.getRightAnswer());
+        }
         return false;
     }
-    
+
     private void jNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNextActionPerformed
-        if(compareButtonAndRightAnswer())
+        if (compareButtonAndRightAnswer()) {
             this.setVisible(false);
+        }
     }//GEN-LAST:event_jNextActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
-    public void setQuiz(){
-        
+    public void setQuiz() {
+
         quiz.getFile(quiz.getRandomFile());
+
+        String quizType = quiz.getQuiztype();
         
+        switch (quizType) {
+            case "picture":
+                ImageIcon mainImage = new ImageIcon(quiz.getQuizTypeUrl());
+                jMainImage.setIcon(mainImage);
+                break;
+            case "video":
+                break;
+            case "soundClip":
+                break;
+            default:
+                break;
+        }
+
         jQuestion.setText(quiz.getQuestion());
         jAnswer1.setText(quiz.getAnswer().get(0));
         jAnswer2.setText(quiz.getAnswer().get(1));
         jAnswer3.setText(quiz.getAnswer().get(2));
         jAnswer4.setText(quiz.getAnswer().get(3));
-        
+
         ImageIcon selectImage = new ImageIcon(quiz.getURLS().get(0));
         jPictureLabel1.setIcon(selectImage);
-        
+
         ImageIcon selectImage2 = new ImageIcon(quiz.getURLS().get(1));
         jPictureLabel2.setIcon(selectImage2);
-        
+
         ImageIcon selectImage3 = new ImageIcon(quiz.getURLS().get(2));
         jPictureLabel3.setIcon(selectImage3);
-        
+
         ImageIcon selectImage4 = new ImageIcon(quiz.getURLS().get(3));
         jPictureLabel4.setIcon(selectImage4);
-        }
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -169,6 +190,7 @@ public class QuizGUI2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton jAnswer2;
     private javax.swing.JRadioButton jAnswer3;
     private javax.swing.JRadioButton jAnswer4;
+    private javax.swing.JLabel jMainImage;
     private javax.swing.JButton jNext;
     private javax.swing.JLabel jPictureLabel1;
     private javax.swing.JLabel jPictureLabel2;

@@ -1,3 +1,4 @@
+Type: null | 
 Question 1: How many people lives in London?
 1 million
 2 million

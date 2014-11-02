@@ -11,6 +11,8 @@ public class QuizControl {
 
     String question;
     String rightAnswer;
+    String Quiztype;
+    String QuizTypeUrl;
     ArrayList<String> answer;
     FileHandler fileHandler = new FileHandler();
     ArrayList<String> file;
@@ -25,31 +27,53 @@ public class QuizControl {
         answer = new ArrayList();
         pictureURL = new ArrayList();
         file = fileHandler.load(filename);
-        question = file.get(0).substring(file.get(0).indexOf(":") + 2, file.get(0).indexOf("?") + 1);
+        
+        
+        //Get the quizType from file
+        Quiztype = file.get(0).substring(file.get(0).indexOf(":")+1, file.get(0).indexOf("|")).replaceAll(" ", "");
+        QuizTypeUrl = file.get(0).substring(file.get(0).indexOf("|")+2);
+        
+        //Get the question from file
+        question = file.get(1).substring(file.get(1).indexOf(":") + 2, file.get(1).indexOf("?") + 1);
 
-        for (int i = 1; i < 5; i++) {
+        //Fetch the right answer from 4 answer options
+        for (int i = 2; i < 6; i++) {
             if (file.get(i).contains("(r)")) {
                 rightAnswer = file.get(i).substring(0, file.get(i).indexOf("("));
             }
 
         }
-
-        for (int i = 0; i < 4; i++) {
+        
+        //Add 4 answers in arraylist
+        for (int i = 2; i < 6; i++) {
             try {
-                answer.add(file.get(i + 1).replaceAll("\\(r", "").replaceAll("\\)", ""));
+                answer.add(file.get(i).replaceAll("\\(r", "").replaceAll("\\)", ""));
             } catch (Exception e) {
                 System.out.println(e);
             }
         }
 
+        //Get picture URL from file
         for (int i = 0; i < 4; i++) {
             try {
-                pictureURL.add(file.get(i + 5));
+                pictureURL.add(file.get(i + 6));
             } catch (Exception e) {
+                //If empty URL or wrong URL, simply add "" as URL
                 pictureURL.add("");
             }
         }
+        
+        
+        
 
+    }
+
+    public String getQuiztype() {
+        return Quiztype;
+    }
+
+    public String getQuizTypeUrl() {
+        return QuizTypeUrl;
     }
 
     public String getQuestion() {
@@ -65,7 +89,7 @@ public class QuizControl {
     }
 
     public String getRandomFile() {
-        String randomFile = "./questions/Question"+ Integer.toString(random.nextInt(5) + 1) + ".txt";
+        String randomFile = "./questions/Question1"+ ".txt";
         /*if(questionUsed.contains(randomFile))
          getRandomFile();
          else
