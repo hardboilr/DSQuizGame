@@ -29,6 +29,8 @@ public class Panel_Intro extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
+        setOpaque(false);
+
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\backgroundImages\\cphairport.png")); // NOI18N
         jLabel1.setOpaque(true);
 
