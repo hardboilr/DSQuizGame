@@ -10,19 +10,21 @@ package Daniel;
  * @author Daniel
  */
 public class Person {
-    private String name;
+    private String boardingNumber;
     private String nickname;
+    private String type;
     private int score;
 
     @Override
     public String toString() {
-        return name + "," + nickname+ "," + score;
+        return boardingNumber + "," + nickname+ "," + type;
     }
 
-    public Person (String name, String nickname) {
-        this.name = name;
+    public Person (String boardingNumber, String nickname, String type) {
+        this.boardingNumber = boardingNumber;
         this.nickname = nickname;
-        this.score = 0;
+        this.type = type;
+        //this.score = 0;
     }
     
     
