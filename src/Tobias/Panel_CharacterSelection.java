@@ -7,31 +7,33 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Panel_CharacterSelection extends javax.swing.JPanel {
-    
+
     private final ImageIcon man_unselected_icon = new ImageIcon("./art/images/character/man_1_unselected.png");
     private final ImageIcon man_entered_icon = new ImageIcon("./art/images/character/man_1_entered.png");
     private final ImageIcon man_selected_icon = new ImageIcon("./art/images/character/man_1_selected.png");
-    
+
     private final ImageIcon woman_unselected_icon = new ImageIcon("./art/images/character/woman_1_unselected.png");
     private final ImageIcon woman_entered_icon = new ImageIcon("./art/images/character/woman_1_entered.png");
     private final ImageIcon woman_selected_icon = new ImageIcon("./art/images/character/woman_1_selected.png");
-    
-    private final ImageIcon child_unselected_icon = new ImageIcon ("./art/images/character/child_1_unselected.png");
-    private final ImageIcon child_entered_icon = new ImageIcon ("./art/images/character/child_1_entered.png");
-    private final ImageIcon child_selected_icon = new ImageIcon ("./art/images/character/child_1_selected.png");
-    
+
+    private final ImageIcon child_unselected_icon = new ImageIcon("./art/images/character/child_1_unselected.png");
+    private final ImageIcon child_entered_icon = new ImageIcon("./art/images/character/child_1_entered.png");
+    private final ImageIcon child_selected_icon = new ImageIcon("./art/images/character/child_1_selected.png");
+
     private Boolean man_selected = false;
     private Boolean woman_selected = false;
     private Boolean child_selected = false;
 
+    String type;
+
     public Panel_CharacterSelection() {
         initComponents();
-        GUI_Main.jLabelTest = new JLabel();
+
         //init icons
         jLabel_man.setIcon(man_unselected_icon);
         jLabel_woman.setIcon(woman_unselected_icon);
         jLabel_child.setIcon(child_unselected_icon);
-        
+
     }
 
     /**
@@ -196,7 +198,19 @@ public class Panel_CharacterSelection extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jLabel_childMousePressed
 
+    public String getType() {
 
+        if (man_selected == true) {
+            type = "man";
+            return type;
+        } else if (woman_selected == true) {
+            type = "woman";
+            return type;
+        } else if (child_selected == true) {
+            type = "child";
+        }
+        return type;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel_child;
     private javax.swing.JLabel jLabel_choose1;

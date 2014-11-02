@@ -14,6 +14,8 @@ public class Panel_QuizRules extends javax.swing.JPanel {
 
     public Panel_QuizRules() {
         initComponents();
+        
+        //init icons
         jLabel_arrowRight.setIcon(arrowRight);
         jLabel_star.setIcon(star);
     }

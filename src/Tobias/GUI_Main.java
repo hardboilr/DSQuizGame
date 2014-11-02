@@ -3,52 +3,54 @@
  */
 package Tobias;
 
+import Daniel.Person;
+import Daniel.Frame1;
+import Daniel.FileHandler;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
+import javax.swing.JOptionPane;
 
 public class GUI_Main extends javax.swing.JFrame {
 
-    private final ImageIcon next_unselected_icon = new ImageIcon ("./art/images/icons/next_unselected.png");
-    private final ImageIcon next_entered_icon = new ImageIcon ("./art/images/icons/next_entered.png");
-    private final ImageIcon next_pressed_icon = new ImageIcon ("./art/images/icons/next_pressed.png");
+    private final ImageIcon next_unselected_icon = new ImageIcon("./art/images/icons/next_unselected.png");
+    private final ImageIcon next_entered_icon = new ImageIcon("./art/images/icons/next_entered.png");
+    private final ImageIcon next_pressed_icon = new ImageIcon("./art/images/icons/next_pressed.png");
     Panel_Intro intro;
     Panel_QuizRules quizrules;
     Panel_CharacterSelection characterselection;
     Panel_TimerClick timerclick;
     Panel_Highscore highscore;
+    Daniel.Panel_Login login;
+    Daniel.Person person;
     
-    public static JLabel jLabelTest; 
-    
+    String boardingNumber;
+    String nickname;
+    String password;
+
+    Boolean wrongPassword = false;
+
     int currentPanel = 0;
-    
+
     public GUI_Main() {
-        
-        jLabelTest =  new JLabel(next_unselected_icon);
-        
-        //init icons
-        try {
-        jLabel_next.setIcon(next_unselected_icon);
-        } catch (NullPointerException e) {
-            System.out.println("Something wierd just happened!");
-        }
-            
+
         initComponents();
+        //init icons
+        jLabel_next.setIcon(next_unselected_icon);
+        jLabel_next.setVisible(true);
+
+        //set background color
         getContentPane().setBackground(Color.orange);
-        //jLabel_next.setVisible(true);
-        
-       // GUI_Main main = new GUI_Main();
+
+        //init intro panel
         intro = new Panel_Intro();
 
         this.setLayout(new BorderLayout());
         this.add(intro, BorderLayout.CENTER);
         this.setVisible(true);
-        
-        
-        
+
+        //this.list = FileHandler.load("text.txt"); 
     }
 
     /**
@@ -80,6 +82,12 @@ public class GUI_Main extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel_nextMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel_nextMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel_nextMouseReleased(evt);
+            }
         });
         getContentPane().add(jLabel_next);
         jLabel_next.setBounds(650, 460, 110, 70);
@@ -96,51 +104,92 @@ public class GUI_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_nextMouseExited
 
     private void jLabel_nextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_nextMouseClicked
+
+
+    }//GEN-LAST:event_jLabel_nextMouseClicked
+
+    private void jLabel_nextMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_nextMouseReleased
+        System.out.println("Released!");
+        //currentPanel++;
+        /*if (wrongPassword == true) {
+            System.out.println("Wrong password!");
+            currentPanel = 1;
+            wrongPassword = false;
+        }*/
+    }//GEN-LAST:event_jLabel_nextMouseReleased
+
+    private void jLabel_nextMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_nextMousePressed
+        System.out.println("Pressed");
         currentPanel++;
         System.out.println("Current panel is: " + currentPanel);
-        
-       
+
         switch (currentPanel) 
         {
-            case 0: //Panel_intro which is not relevant
-                System.out.println("Case 0!");
-            case 1: //CharacterSelection
-                System.out.println("Case 1!");
-               // System.out.println("Current panel is: " + currentPanel);
-                characterselection = new Panel_CharacterSelection();
-                this.add(characterselection);
-                characterselection.setVisible(true);
-                intro.setVisible(false);
-                jLabel_next.setVisible(false);
+            case 0: //we start here in intro 
                 break;
-            case 2: //QuizRules
-                System.out.println("Case 2!");
+            case 1: //Login (import from Daniel package)
+                System.out.println("Case 1: Login");
+                login = new Daniel.Panel_Login();
+                this.add(login);
+                login.setVisible(true);
+                intro.setVisible(false);
+                break;
+            case 2: //Grab data from login panel
+                boardingNumber = login.getjText_boarding();
+                nickname = login.getjText_nickname();
+                password = "EH270";
+
+                if (password.equals(boardingNumber)) 
+                {
+                    System.out.println("Password correct");
+
+                    //go on to character selection
+                    characterselection = new Panel_CharacterSelection();
+                    this.add(characterselection);
+                    characterselection.setVisible(true);
+                    login.setVisible(false);
+                    jLabel_next.setVisible(false);
+                    //currentPanel++;
+                    System.out.println("Current panel is:" + currentPanel);
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Incorrect boarding number");
+                    wrongPassword = true;
+                    currentPanel = 1;
+                }
+                break;
+            case 3: //QuizRules
+                //Add person object
+                Person p = new Person(boardingNumber, nickname, characterselection.getType());
+                System.out.println(characterselection.getType());
+                System.out.println(p);
+                
+                System.out.println("Case 3: Quiz rules");
                 quizrules = new Panel_QuizRules();
                 this.add(quizrules);
                 characterselection.setVisible(false);
                 quizrules.setVisible(true);
                 break;
-            case 3: //Timer-click
-                System.out.println("Case 3!");
+            case 4: //Timer-click
+                System.out.println("Case 4: Timer click");
                 timerclick = new Panel_TimerClick();
                 this.add(timerclick);
                 quizrules.setVisible(false);
                 timerclick.setVisible(true);
                 jLabel_next.setVisible(false);
                 break;
-            case 4: //Game-statistics
-            case 5: //Highscore    
-                System.out.println("Case 5!");
+            case 5: //Game-statistics (optional)
+                System.out.println("Case 5: Game statistics");
+            case 6: //Highscore
+                System.out.println("Case 6: Highscore");
                 highscore = new Panel_Highscore();
+                break;
         }
-       
-            
-       
-    }//GEN-LAST:event_jLabel_nextMouseClicked
+
+    }//GEN-LAST:event_jLabel_nextMousePressed
 
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -172,11 +221,8 @@ public class GUI_Main extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void getJlabel_next() {
-        
-    }
-    
+
+    //public void chec
     //public void
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

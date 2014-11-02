@@ -3,7 +3,7 @@
  */
 package Tobias;
 
-public class Round {
+public class DELETE_Round {
     private int round = 10;
     
     public int getRound() {
