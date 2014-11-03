@@ -6,7 +6,11 @@
 package Andreas;
 
 import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -22,6 +26,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
      */
     public Panel_QuizGUI(QuizControl quiz) {
         initComponents();
+        jPlayVideoButton.setVisible(false);
         this.quiz = quiz;
         setQuiz();
     }
@@ -35,6 +40,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jQuestion = new javax.swing.JLabel();
         jAnswer1 = new javax.swing.JRadioButton();
         jAnswer2 = new javax.swing.JRadioButton();
@@ -46,10 +52,24 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jPictureLabel3 = new javax.swing.JLabel();
         jMainImage = new javax.swing.JLabel();
         jNextButton = new javax.swing.JButton();
+        jPlayVideoButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         jQuestion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        buttonGroup1.add(jAnswer1);
+
+        buttonGroup1.add(jAnswer2);
+        jAnswer2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAnswer2ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jAnswer3);
+
+        buttonGroup1.add(jAnswer4);
 
         jNextButton.setText("Next");
         jNextButton.addActionListener(new java.awt.event.ActionListener() {
@@ -58,14 +78,25 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
             }
         });
 
+        jPlayVideoButton.setText("Play Video!");
+        jPlayVideoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPlayVideoButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(577, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jNextButton)
                 .addGap(18, 18, 18))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(273, 273, 273)
+                .addComponent(jPlayVideoButton)
+                .addContainerGap(292, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -100,21 +131,21 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(477, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jPlayVideoButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 480, Short.MAX_VALUE)
                 .addComponent(jNextButton)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jMainImage)
-                    .addGap(90, 90, 90)
+                    .addGap(60, 60, 60)
+                    .addComponent(jQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPictureLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPictureLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPictureLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPictureLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(10, 10, 10)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jAnswer1)
@@ -133,9 +164,25 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
 
     private void jNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNextButtonActionPerformed
         if (compareButtonAndRightAnswer()) {
-            this.setVisible(false);
+            jPlayVideoButton.setVisible(false);
+            jMainImage.setVisible(false);
+            setQuiz();
         }
     }//GEN-LAST:event_jNextButtonActionPerformed
+
+    private void jPlayVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPlayVideoButtonActionPerformed
+        try {
+            Desktop.getDesktop().browse(new URL(quiz.getQuizTypeUrl()).toURI());
+        } catch (IOException ex) {
+            Logger.getLogger(Panel_QuizGUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Panel_QuizGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jPlayVideoButtonActionPerformed
+
+    private void jAnswer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAnswer2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAnswer2ActionPerformed
 
     private boolean compareButtonAndRightAnswer() {
         if (jAnswer1.isSelected()) {
@@ -166,12 +213,10 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
             case "picture":
                 ImageIcon mainImage = new ImageIcon(quiz.getQuizTypeUrl());
                 jMainImage.setIcon(mainImage);
+                jMainImage.setVisible(true);
                 break;
             case "video":
-                try {
-                    Desktop.getDesktop().browse(new URL(quiz.getQuizTypeUrl()).toURI());
-                } catch (Exception e) {
-                }
+                jPlayVideoButton.setVisible(true);
                 break;
             case "soundClip":
                 break;
@@ -200,6 +245,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton jAnswer1;
     private javax.swing.JRadioButton jAnswer2;
     private javax.swing.JRadioButton jAnswer3;
@@ -210,6 +256,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jPictureLabel2;
     private javax.swing.JLabel jPictureLabel3;
     private javax.swing.JLabel jPictureLabel4;
+    private javax.swing.JButton jPlayVideoButton;
     private javax.swing.JLabel jQuestion;
     // End of variables declaration//GEN-END:variables
 }

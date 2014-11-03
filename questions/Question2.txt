@@ -1,3 +1,4 @@
+Type: null | 
 Question 1: Which team does Hart play in?
 Arsenal
 Bolton

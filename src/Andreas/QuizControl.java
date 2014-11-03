@@ -29,14 +29,15 @@ public class QuizControl {
         file = fileHandler.load(filename);
         
         
-        //Get the quizType from file
+        //Get the quizType from file (Picture, soundClip or video)
         Quiztype = file.get(0).substring(file.get(0).indexOf(":")+1, file.get(0).indexOf("|")).replaceAll(" ", "");
+        //Get the Main URL to either picture, soundClip or video
         QuizTypeUrl = file.get(0).substring(file.get(0).indexOf("|")+2);
         
         //Get the question from file
         question = file.get(1).substring(file.get(1).indexOf(":") + 2, file.get(1).indexOf("?") + 1);
 
-        //Fetch the right answer from 4 answer options
+        //Fetch the right one answer from 4 answer options
         for (int i = 2; i < 6; i++) {
             if (file.get(i).contains("(r)")) {
                 rightAnswer = file.get(i).substring(0, file.get(i).indexOf("("));
@@ -89,7 +90,7 @@ public class QuizControl {
     }
 
     public String getRandomFile() {
-        String randomFile = "./questions/Question1"+ ".txt";
+        String randomFile = "./questions/Question"+ Integer.toString(random.nextInt(16)+1) + ".txt";
         /*if(questionUsed.contains(randomFile))
          getRandomFile();
          else

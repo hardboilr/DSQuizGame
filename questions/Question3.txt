@@ -1,3 +1,4 @@
+Type: null | 
 Question 3: Which currency is used in England?
 Pound(r)
 Rupiah

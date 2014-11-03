@@ -1,3 +1,4 @@
+Type: null | 
 Question 4: Who is the Queen of England?
 Elizabeth II (r)
 Anne-Marie
