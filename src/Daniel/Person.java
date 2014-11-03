@@ -13,7 +13,7 @@ public class Person {
     private String boardingNumber;
     private String nickname;
     private String type;
-    private int score;
+    //private int score;
 
     @Override
     public String toString() {

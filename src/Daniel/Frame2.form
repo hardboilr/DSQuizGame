@@ -31,7 +31,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelPassword" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelAge" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelUsername" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -40,7 +40,7 @@
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTextUsername" pref="68" max="32767" attributes="0"/>
-                          <Component id="jTextPassword" max="32767" attributes="0"/>
+                          <Component id="jTextAge" max="32767" attributes="0"/>
                           <Component id="jTextNickname" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -64,8 +64,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextAge" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="62" max="32767" attributes="0"/>
               <Component id="jButtonLogin" min="-2" max="-2" attributes="0"/>
@@ -80,9 +80,9 @@
         <Property name="text" type="java.lang.String" value="Boardingnumber"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelPassword">
+    <Component class="javax.swing.JLabel" name="jLabelAge">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Password"/>
+        <Property name="text" type="java.lang.String" value="Age"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextUsername">
@@ -90,9 +90,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextUsernameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextPassword">
+    <Component class="javax.swing.JTextField" name="jTextAge">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextPasswordActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextAgeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonLogin">

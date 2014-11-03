@@ -108,6 +108,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tunga" size="24" style="1"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Enter your boardingnumber shown on your ticket"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jText_boardingActionPerformed"/>
@@ -118,6 +119,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tunga" size="18" style="0"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Enter a nickname of your own choice"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jText_nicknameActionPerformed"/>
@@ -140,11 +142,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_flightTicket">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Tobias\Desktop\Tobias dropbox\Dropbox\Datamatiker\1. semester\Programming\JAVA\Obligatoriske afleveringer\4_DAT-Service\DSQuizGame\art\images\icons\flightTicket.png"/>
-        </Property>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

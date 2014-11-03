@@ -19,7 +19,7 @@ public class Frame2 extends javax.swing.JFrame {
     public Frame2() {
         initComponents();
         setLocation(200, 100);
-        this.list = FileHandler.load("text.txt");
+        list = FileHandler.load("text.txt");
 //        for(Person p : list){
 //            System.out.println(p);
 //        }
@@ -35,9 +35,9 @@ public class Frame2 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelUsername = new javax.swing.JLabel();
-        jLabelPassword = new javax.swing.JLabel();
+        jLabelAge = new javax.swing.JLabel();
         jTextUsername = new javax.swing.JTextField();
-        jTextPassword = new javax.swing.JTextField();
+        jTextAge = new javax.swing.JTextField();
         jButtonLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextNickname = new javax.swing.JTextField();
@@ -46,7 +46,7 @@ public class Frame2 extends javax.swing.JFrame {
 
         jLabelUsername.setText("Boardingnumber");
 
-        jLabelPassword.setText("Password");
+        jLabelAge.setText("Age");
 
         jTextUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,9 +54,9 @@ public class Frame2 extends javax.swing.JFrame {
             }
         });
 
-        jTextPassword.addActionListener(new java.awt.event.ActionListener() {
+        jTextAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextPasswordActionPerformed(evt);
+                jTextAgeActionPerformed(evt);
             }
         });
 
@@ -86,7 +86,7 @@ public class Frame2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPassword)
+                    .addComponent(jLabelAge)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelUsername)
@@ -94,7 +94,7 @@ public class Frame2 extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                            .addComponent(jTextPassword)
+                            .addComponent(jTextAge)
                             .addComponent(jTextNickname))))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
@@ -111,8 +111,8 @@ public class Frame2 extends javax.swing.JFrame {
                     .addComponent(jTextNickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPassword)
-                    .addComponent(jTextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelAge)
+                    .addComponent(jTextAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(jButtonLogin)
                 .addGap(52, 52, 52))
@@ -121,29 +121,29 @@ public class Frame2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextPasswordActionPerformed
+    private void jTextAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextAgeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextPasswordActionPerformed
+    }//GEN-LAST:event_jTextAgeActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-        String boardingNumber = "";
-        String password = "";
-        boardingNumber = jTextUsername.getText();;
-
-        if (password.equals(jTextPassword.getText())) {
-            Frame1 f1 = new Frame1(boardingNumber);
-            f1.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Incorrect password!");
-        }
-
-        Person p = new Person(jTextUsername.getText(),jTextNickname.getText());
-
-        list.add(p);
-
-        FileHandler.savePersons(list, "text.txt");
+        String boardingNumber = "EH270";
+        // String password = "";
+        // boardingNumber = jTextUsername.getText();
+        //String str1 = jTextAge.getText();
+        
+        //int num1 = Integer.parseInt(str1);
+        
+//        if (boardingNumber.equals(jTextUsername.getText())) {
+//            Frame1 f1 = new Frame1(boardingNumber);
+//            f1.setVisible(true);
+//            Person p = new Person(jTextUsername.getText(), jTextNickname.getText(), );
+//            list.add(p);
+//            FileHandler.savePersons(list, "text.txt");
+//            this.dispose();
+//        } else {
+//            JOptionPane.showMessageDialog(rootPane, "Incorrect boardingnumber!");
+//        }
 
 
     }//GEN-LAST:event_jButtonLoginActionPerformed
@@ -197,10 +197,10 @@ public class Frame2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelAge;
     private javax.swing.JLabel jLabelUsername;
+    private javax.swing.JTextField jTextAge;
     private javax.swing.JTextField jTextNickname;
-    private javax.swing.JTextField jTextPassword;
     private javax.swing.JTextField jTextUsername;
     // End of variables declaration//GEN-END:variables
 }
