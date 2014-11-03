@@ -217,16 +217,24 @@ public class GUI_Main extends javax.swing.JFrame {
                 boardingNumber = login.getjText_boarding();
                 nickname = login.getjText_nickname();
                 password = "EH270";
-                if (password.equals(boardingNumber)) {
+                if (password.equals(boardingNumber)) 
+                {
                     //go on to character selection
                     characterselection = new Panel_CharacterSelection();
                     this.add(characterselection);
                     characterselection.setVisible(true);
                     login.setVisible(false);
                     jLabel_next.setVisible(false);
+                }
+                else if (boardingNumber.equals ("")) 
+                {
+                    JOptionPane.showMessageDialog(rootPane, "You need to input boarding number");
+                    //wrongPassword = true;
+                    currentPanel = 1;      
+                            
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Incorrect boarding number");
-                    wrongPassword = true;
+                    //wrongPassword = true;
                     currentPanel = 1;
                 }
                 break;
