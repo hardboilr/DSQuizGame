@@ -90,7 +90,7 @@ public class QuizControl {
     }
 
     public String getRandomFile() {
-        String randomFile = "./questions/Question"+ Integer.toString(random.nextInt(16)+1) + ".txt";
+        String randomFile = "./questions/Question"+ Integer.toString(random.nextInt(15)+1) + ".txt";
         /*if(questionUsed.contains(randomFile))
          getRandomFile();
          else

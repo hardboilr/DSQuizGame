@@ -10,7 +10,8 @@ import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-import Andreas.Backup.QuizGUI2;
+import Andreas.*;
+import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 
 
@@ -23,6 +24,9 @@ public class Panel_TimerClick extends javax.swing.JPanel {
     Random pos = new Random(); 
     int posX;
     int posY;
+    
+    QuizControl quizControl = new QuizControl();
+    Panel_QuizGUI quiz;
     
     
     private JLabel label;
@@ -145,10 +149,35 @@ public class Panel_TimerClick extends javax.swing.JPanel {
 
     private void jLabel_starMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_starMouseClicked
         System.out.println("Star clicked!");
-        QuizGUI2 quiz = new QuizGUI2();
-        quiz.setVisible(true);
-    }//GEN-LAST:event_jLabel_starMouseClicked
+        jLabel_background.setVisible(false);
+        jLabel_countDown.setVisible(false);
+        jLabel_star.setVisible(false);
 
+        //this.setVisible(false);
+        quiz = new Panel_QuizGUI(quizControl);
+        this.setLayout(new BorderLayout());
+        this.add(quiz, BorderLayout.CENTER);
+        quiz.setVisible(true);
+        if(quiz.getDone() == true)
+        {
+            System.out.println("Nu er labels synlige!");
+            setLabelVisibility();
+            
+            
+        } 
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jLabel_starMouseClicked
+    
+    public void setLabelVisibility() {
+        jLabel_background.setVisible(true);
+        jLabel_countDown.setVisible(true);
+        jLabel_star.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel_background;

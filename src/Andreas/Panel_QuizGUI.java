@@ -13,6 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
+
+
 /**
  *
  * @author Andreas Styltsvig
@@ -20,7 +22,7 @@ import javax.swing.ImageIcon;
 public class Panel_QuizGUI extends javax.swing.JPanel {
 
     QuizControl quiz;
-
+    boolean done;
     /**
      * Creates new form Panel_QuizGUI
      */
@@ -54,6 +56,9 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jNextButton = new javax.swing.JButton();
         jPlayVideoButton = new javax.swing.JButton();
 
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         jQuestion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -166,7 +171,10 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         if (compareButtonAndRightAnswer()) {
             jPlayVideoButton.setVisible(false);
             jMainImage.setVisible(false);
-            setQuiz();
+            //setQuiz();
+            this.setVisible(false);
+            done = true;
+
         }
     }//GEN-LAST:event_jNextButtonActionPerformed
 
@@ -204,7 +212,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
      * @param args the command line arguments
      */
     public void setQuiz() {
-
+        done = false;
         quiz.getFile(quiz.getRandomFile());
 
         String quizType = quiz.getQuiztype();
@@ -243,7 +251,9 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jPictureLabel4.setIcon(selectImage4);
     }
 
-
+    public boolean getDone() {
+        return done;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton jAnswer1;

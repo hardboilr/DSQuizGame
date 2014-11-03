@@ -3,6 +3,8 @@
  */
 package Tobias;
 
+import Andreas.Panel_QuizGUI;
+import Andreas.QuizControl;
 import Daniel.Person;
 import Daniel.Frame1;
 import Daniel.FileHandler;
@@ -24,6 +26,9 @@ public class GUI_Main extends javax.swing.JFrame {
     Panel_Highscore highscore;
     Daniel.Panel_Login login;
     Daniel.Person person;
+    
+    QuizControl quizControl = new QuizControl();
+    Panel_QuizGUI quiz;
     
     String boardingNumber;
     String nickname;
@@ -72,6 +77,7 @@ public class GUI_Main extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        jLabel_next.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\next_unselected.png")); // NOI18N
         jLabel_next.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel_nextMouseClicked(evt);
@@ -177,9 +183,17 @@ public class GUI_Main extends javax.swing.JFrame {
                 timerclick.setVisible(true);
                 jLabel_next.setVisible(false);
                 break;
-            case 5: //Game-statistics (optional)
+            case 5: //Quiz
+                // if star pressed then below
+                System.out.println("Case 5: Quiz started!");
+                
+                
+        
+        quiz.setVisible(true);
+            
+            case 6: //Game-statistics (optional)
                 System.out.println("Case 5: Game statistics");
-            case 6: //Highscore
+            case 7: //Highscore
                 System.out.println("Case 6: Highscore");
                 highscore = new Panel_Highscore();
                 break;
