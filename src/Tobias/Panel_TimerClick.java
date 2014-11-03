@@ -153,6 +153,8 @@ public class Panel_TimerClick extends javax.swing.JPanel {
         jLabel_countDown.setVisible(false);
         jLabel_star.setVisible(false);
         
+        GUI_Main.setIsQuiz(true);
+        
         quiz = new Panel_QuizGUI(quizControl);
         this.setLayout(new BorderLayout());
         this.add(quiz, BorderLayout.CENTER);

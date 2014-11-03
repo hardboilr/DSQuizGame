@@ -6,9 +6,6 @@ package Tobias;
 import Andreas.Panel_QuizGUI;
 import Andreas.QuizControl;
 import Daniel.Person;
-import Daniel.Frame1;
-import Daniel.FileHandler;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -35,6 +32,8 @@ public class GUI_Main extends javax.swing.JFrame {
     String password;
 
     Boolean wrongPassword = false;
+    private static Boolean isQuiz = false;
+    Boolean isNavigation = true;
 
     int currentPanel = 0;
 
@@ -126,6 +125,55 @@ public class GUI_Main extends javax.swing.JFrame {
 
     private void jLabel_nextMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_nextMousePressed
         System.out.println("Pressed");
+        if (isNavigation == true) {
+            Navigation();
+        }
+        else if (isQuiz == true) {
+            Quiz();
+        }
+        
+        
+            
+        
+    }//GEN-LAST:event_jLabel_nextMousePressed
+
+    /**
+         * @param args the command line arguments
+         */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(GUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(GUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(GUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(GUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new GUI_Main().setVisible(true);
+            }
+        });
+    }
+    
+    public void Navigation() {
+        System.out.println("Now we are navigating");
         currentPanel++;
         System.out.println("Current panel is: " + currentPanel);
 
@@ -186,8 +234,6 @@ public class GUI_Main extends javax.swing.JFrame {
             case 5: //Quiz
                 // if star pressed then below
                 System.out.println("Case 5: Quiz started!");
-                
-                
         
         quiz.setVisible(true);
             
@@ -198,46 +244,18 @@ public class GUI_Main extends javax.swing.JFrame {
                 highscore = new Panel_Highscore();
                 break;
         }
-
-    }//GEN-LAST:event_jLabel_nextMousePressed
-
-    /**
-         * @param args the command line arguments
-         */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUI_Main().setVisible(true);
-            }
-        });
     }
-
-    //public void chec
-    //public void
+    
+    public void Quiz() {
+        System.out.println("Now we are inside quiz");
+        quiz.compareButtonAndRightAnswer();
+    }
+    
+    public static Boolean setIsQuiz(Boolean input) {
+        isQuiz = input;
+        return isQuiz;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel jLabel_next;
