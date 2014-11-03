@@ -8,14 +8,27 @@ import Andreas.QuizControl;
 import Daniel.Person;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class GUI_Main extends javax.swing.JFrame {
 
     private final ImageIcon next_unselected_icon = new ImageIcon("./art/images/icons/next_unselected.png");
     private final ImageIcon next_entered_icon = new ImageIcon("./art/images/icons/next_entered.png");
     private final ImageIcon next_pressed_icon = new ImageIcon("./art/images/icons/next_pressed.png");
+    
+    private final ImageIcon star_icon = new ImageIcon("./art/images/icons/star.png");
+    
+    private int posX;
+    private int posY;
+    
+    Random random = new Random(); 
+    
     Panel_Intro intro;
     Panel_QuizRules quizrules;
     Panel_CharacterSelection characterselection;
@@ -23,6 +36,8 @@ public class GUI_Main extends javax.swing.JFrame {
     Panel_Highscore highscore;
     Daniel.Panel_Login login;
     Daniel.Person person;
+    
+    QuizEngine quizengine = new QuizEngine();
     
     QuizControl quizControl = new QuizControl();
     Panel_QuizGUI quiz;
@@ -32,10 +47,18 @@ public class GUI_Main extends javax.swing.JFrame {
     String password;
 
     Boolean wrongPassword = false;
-    private static Boolean isQuiz = false;
+    private Boolean isQuiz = false;
     Boolean isNavigation = true;
 
     int currentPanel = 0;
+    
+    //timer variables
+    private JLabel label;
+    private Timer timer;
+    private final int COUNT_TIME = 4;
+    private int counter; // the duration
+    private final int DELAY = 1000; // every 1 second
+    private boolean timeUp = false;
 
     public GUI_Main() {
 
@@ -43,6 +66,8 @@ public class GUI_Main extends javax.swing.JFrame {
         //init icons
         jLabel_next.setIcon(next_unselected_icon);
         jLabel_next.setVisible(true);
+        jLabel_star.setIcon(star_icon);
+        jLabel_star.setVisible(false);
 
         //set background color
         getContentPane().setBackground(Color.orange);
@@ -67,6 +92,7 @@ public class GUI_Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel_next = new javax.swing.JLabel();
+        jLabel_star = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("The Destination Game");
@@ -78,9 +104,6 @@ public class GUI_Main extends javax.swing.JFrame {
 
         jLabel_next.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\next_unselected.png")); // NOI18N
         jLabel_next.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_nextMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_nextMouseEntered(evt);
             }
@@ -90,12 +113,18 @@ public class GUI_Main extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel_nextMousePressed(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel_nextMouseReleased(evt);
-            }
         });
         getContentPane().add(jLabel_next);
         jLabel_next.setBounds(650, 460, 110, 70);
+
+        jLabel_star.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\star.png")); // NOI18N
+        jLabel_star.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel_starMousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabel_star);
+        jLabel_star.setBounds(370, 250, 60, 70);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -108,34 +137,33 @@ public class GUI_Main extends javax.swing.JFrame {
         jLabel_next.setIcon(next_unselected_icon);
     }//GEN-LAST:event_jLabel_nextMouseExited
 
-    private void jLabel_nextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_nextMouseClicked
-
-
-    }//GEN-LAST:event_jLabel_nextMouseClicked
-
-    private void jLabel_nextMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_nextMouseReleased
-        System.out.println("Released!");
-        //currentPanel++;
-        /*if (wrongPassword == true) {
-            System.out.println("Wrong password!");
-            currentPanel = 1;
-            wrongPassword = false;
-        }*/
-    }//GEN-LAST:event_jLabel_nextMouseReleased
-
     private void jLabel_nextMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_nextMousePressed
-        System.out.println("Pressed");
+        System.out.println(isQuiz);
         if (isNavigation == true) {
+            System.out.println("Navigation is true!");
+            currentPanel++;
             Navigation();
         }
         else if (isQuiz == true) {
+            System.out.println("Quiz is true!");
             Quiz();
         }
-        
-        
-            
-        
     }//GEN-LAST:event_jLabel_nextMousePressed
+
+    private void jLabel_starMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_starMousePressed
+        System.out.println("Star pressed!");
+        quiz = new Panel_QuizGUI(quizControl);
+        this.add(quiz);
+        timerclick.setVisible(false);
+        quiz.setVisible(true);
+        jLabel_star.setVisible(false);
+        jLabel_next.setVisible(true);
+        isQuiz = true;
+        isNavigation = false;
+        
+        System.out.println(isQuiz);
+        
+    }//GEN-LAST:event_jLabel_starMousePressed
 
     /**
          * @param args the command line arguments
@@ -173,8 +201,6 @@ public class GUI_Main extends javax.swing.JFrame {
     }
     
     public void Navigation() {
-        System.out.println("Now we are navigating");
-        currentPanel++;
         System.out.println("Current panel is: " + currentPanel);
 
         switch (currentPanel) 
@@ -196,7 +222,6 @@ public class GUI_Main extends javax.swing.JFrame {
                 if (password.equals(boardingNumber)) 
                 {
                     System.out.println("Password correct");
-
                     //go on to character selection
                     characterselection = new Panel_CharacterSelection();
                     this.add(characterselection);
@@ -225,23 +250,13 @@ public class GUI_Main extends javax.swing.JFrame {
                 break;
             case 4: //Timer-click
                 System.out.println("Case 4: Timer click");
+                setCountDown();
                 timerclick = new Panel_TimerClick();
                 this.add(timerclick);
                 quizrules.setVisible(false);
                 timerclick.setVisible(true);
+                jLabel_star.setVisible(true);
                 jLabel_next.setVisible(false);
-                break;
-            case 5: //Quiz
-                // if star pressed then below
-                System.out.println("Case 5: Quiz started!");
-        
-        quiz.setVisible(true);
-            
-            case 6: //Game-statistics (optional)
-                System.out.println("Case 5: Game statistics");
-            case 7: //Highscore
-                System.out.println("Case 6: Highscore");
-                highscore = new Panel_Highscore();
                 break;
         }
     }
@@ -249,15 +264,65 @@ public class GUI_Main extends javax.swing.JFrame {
     public void Quiz() {
         System.out.println("Now we are inside quiz");
         quiz.compareButtonAndRightAnswer();
+        timerclick = new Panel_TimerClick();
+        this.add(timerclick);
+        quiz.setVisible(false);
+        jLabel_star.setLocation(randomPosX(), randomPosY());
+        jLabel_star.setVisible(true);
+        counter = COUNT_TIME;
+        timerclick.setVisible(true);
+        currentPanel = 4;
     }
     
-    public static Boolean setIsQuiz(Boolean input) {
-        isQuiz = input;
-        return isQuiz;
+    public void setCountDown() {
+        ActionListener action = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                timeUp = false;
+               // System.out.println("TimeUp is: " + timeUp);
+                if (counter == 0) {
+                    quizengine.subtractRound(-1);
+                  //  System.out.println("Round: " + quizengine.getRound());
+                    timeUp = true;
+                  //  System.out.println("TimeUp is: " + timeUp);
+                    timerclick.jLabel_countDownSetText("Time is up!");
+                    jLabel_star.setLocation(randomPosX(),randomPosY());
+                    counter = COUNT_TIME;
+                    
+                } else {
+                    timerclick.jLabel_countDownSetText(counter-1 + "sec");
+                    //jLabel_countDown.setText(counter-1 + "sec");
+                    counter--;
+                }
+            //System.out.println("Counter is: " + counter);  
+            } 
+        };
+        
+        counter = COUNT_TIME;
+        timer = new Timer(DELAY, action);   
+        timer.setInitialDelay(0);
+        timer.setRepeats(true);
+        timer.start();
+        setVisible(true);
+    }
+    
+    public int randomPosX() {
+        posX = random.nextInt(700)+30;
+        return posX;
+    }
+    
+    public int randomPosY() {
+        posY = random.nextInt(500)+30;
+        return posY;
+    }
+    
+    public void jLabel_starSetRandomLocation() {
+        jLabel_star.setLocation(randomPosX(), randomPosY());
     }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel jLabel_next;
+    private javax.swing.JLabel jLabel_star;
     // End of variables declaration//GEN-END:variables
 }
