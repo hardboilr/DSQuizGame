@@ -192,7 +192,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jAnswer2ActionPerformed
 
-    private boolean compareButtonAndRightAnswer() {
+    public boolean compareButtonAndRightAnswer() {
         if (jAnswer1.isSelected()) {
             return jAnswer1.getText().equals(quiz.getRightAnswer());
         }
