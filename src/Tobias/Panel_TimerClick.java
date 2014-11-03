@@ -67,7 +67,6 @@ public class Panel_TimerClick extends javax.swing.JPanel {
     public void setLabelVisibility() {
         jLabel_background.setVisible(true);
         jLabel_countDown.setVisible(true);
-      //  jLabel_star.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

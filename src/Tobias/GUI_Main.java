@@ -21,27 +21,29 @@ public class GUI_Main extends javax.swing.JFrame {
     private final ImageIcon next_unselected_icon = new ImageIcon("./art/images/icons/next_unselected.png");
     private final ImageIcon next_entered_icon = new ImageIcon("./art/images/icons/next_entered.png");
     private final ImageIcon next_pressed_icon = new ImageIcon("./art/images/icons/next_pressed.png");
-    
+
     private final ImageIcon star_icon = new ImageIcon("./art/images/icons/star.png");
-    
+
     private int posX;
     private int posY;
-    
-    Random random = new Random(); 
-    
+
+    Random random = new Random();
+
     Panel_Intro intro;
     Panel_QuizRules quizrules;
     Panel_CharacterSelection characterselection;
     Panel_TimerClick timerclick;
     Panel_Highscore highscore;
+    Panel_Statistics statistics;
+    Panel_Again again;
     Daniel.Panel_Login login;
     Daniel.Person person;
-    
+
     QuizEngine quizengine = new QuizEngine();
-    
+
     QuizControl quizControl = new QuizControl();
     Panel_QuizGUI quiz;
-    
+
     String boardingNumber;
     String nickname;
     String password;
@@ -51,7 +53,7 @@ public class GUI_Main extends javax.swing.JFrame {
     Boolean isNavigation = true;
 
     int currentPanel = 0;
-    
+
     //timer variables
     private JLabel label;
     private Timer timer;
@@ -78,6 +80,10 @@ public class GUI_Main extends javax.swing.JFrame {
         this.setLayout(new BorderLayout());
         this.add(intro, BorderLayout.CENTER);
         this.setVisible(true);
+        
+        statistics = new Panel_Statistics();
+        this.add(statistics, BorderLayout.CENTER);
+        statistics.setVisible(false);
 
         //this.list = FileHandler.load("text.txt"); 
     }
@@ -138,36 +144,35 @@ public class GUI_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_nextMouseExited
 
     private void jLabel_nextMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_nextMousePressed
-        System.out.println(isQuiz);
+        System.out.println("Quiz is: " + isQuiz);
+        System.out.println("Navigation is: " + isNavigation);
+        System.out.println(currentPanel);
         if (isNavigation == true) {
-            System.out.println("Navigation is true!");
             currentPanel++;
             Navigation();
-        }
-        else if (isQuiz == true) {
-            System.out.println("Quiz is true!");
+        } else if (isQuiz == true) {
             Quiz();
         }
     }//GEN-LAST:event_jLabel_nextMousePressed
 
     private void jLabel_starMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_starMousePressed
-        System.out.println("Star pressed!");
+        //start quiz
+        quizengine.subtractRound(-1);
+        System.out.println("Number of rounds left:" + quizengine.getRound());
+        timer.stop();
         quiz = new Panel_QuizGUI(quizControl);
         this.add(quiz);
         timerclick.setVisible(false);
-        quiz.setVisible(true);
         jLabel_star.setVisible(false);
+        quiz.setVisible(true);
         jLabel_next.setVisible(true);
         isQuiz = true;
         isNavigation = false;
-        
-        System.out.println(isQuiz);
-        
     }//GEN-LAST:event_jLabel_starMousePressed
 
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -199,16 +204,10 @@ public class GUI_Main extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void Navigation() {
-        System.out.println("Current panel is: " + currentPanel);
 
-        switch (currentPanel) 
-        {
-            case 0: //we start here in intro 
-                break;
+    public void Navigation() {
+        switch (currentPanel) {
             case 1: //Login (import from Daniel package)
-                System.out.println("Case 1: Login");
                 login = new Daniel.Panel_Login();
                 this.add(login);
                 login.setVisible(true);
@@ -218,18 +217,13 @@ public class GUI_Main extends javax.swing.JFrame {
                 boardingNumber = login.getjText_boarding();
                 nickname = login.getjText_nickname();
                 password = "EH270";
-
-                if (password.equals(boardingNumber)) 
-                {
-                    System.out.println("Password correct");
+                if (password.equals(boardingNumber)) {
                     //go on to character selection
                     characterselection = new Panel_CharacterSelection();
                     this.add(characterselection);
                     characterselection.setVisible(true);
                     login.setVisible(false);
                     jLabel_next.setVisible(false);
-                    //currentPanel++;
-                    System.out.println("Current panel is:" + currentPanel);
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Incorrect boarding number");
                     wrongPassword = true;
@@ -241,85 +235,107 @@ public class GUI_Main extends javax.swing.JFrame {
                 Person p = new Person(boardingNumber, nickname, characterselection.getType());
                 System.out.println(characterselection.getType());
                 System.out.println(p);
-                
-                System.out.println("Case 3: Quiz rules");
                 quizrules = new Panel_QuizRules();
                 this.add(quizrules);
                 characterselection.setVisible(false);
                 quizrules.setVisible(true);
                 break;
             case 4: //Timer-click
-                System.out.println("Case 4: Timer click");
-                setCountDown();
+                setCountDown(); //start timer
                 timerclick = new Panel_TimerClick();
                 this.add(timerclick);
                 quizrules.setVisible(false);
+                jLabel_next.setVisible(false);
                 timerclick.setVisible(true);
                 jLabel_star.setVisible(true);
+                break;
+            case 5: //Game statistics
+                //we call this from countDown method
+            case 6:
+                highscore = new Panel_Highscore();
+                this.add(highscore);
+                statistics.setVisible(false);
+                highscore.setVisible(true);
+                break;   
+            case 7: 
+                again = new Panel_Again();
+                this.add(again);
+                highscore.setVisible(false);
                 jLabel_next.setVisible(false);
+                again.setVisible(true);
                 break;
         }
     }
-    
+
     public void Quiz() {
-        System.out.println("Now we are inside quiz");
+        //grab data from quiz
         quiz.compareButtonAndRightAnswer();
+
+        //go back to timed panel
+        timer.start();
         timerclick = new Panel_TimerClick();
         this.add(timerclick);
         quiz.setVisible(false);
+        jLabel_next.setVisible(false);
         jLabel_star.setLocation(randomPosX(), randomPosY());
         jLabel_star.setVisible(true);
         counter = COUNT_TIME;
         timerclick.setVisible(true);
         currentPanel = 4;
     }
-    
+
     public void setCountDown() {
         ActionListener action = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                timeUp = false;
-               // System.out.println("TimeUp is: " + timeUp);
+                //timeUp = false;
                 if (counter == 0) {
                     quizengine.subtractRound(-1);
-                  //  System.out.println("Round: " + quizengine.getRound());
-                    timeUp = true;
-                  //  System.out.println("TimeUp is: " + timeUp);
+                    System.out.println("Number of rounds left: " + quizengine.getRound());
+                    //timeUp = true;
                     timerclick.jLabel_countDownSetText("Time is up!");
-                    jLabel_star.setLocation(randomPosX(),randomPosY());
+                    jLabel_star.setLocation(randomPosX(), randomPosY());
                     counter = COUNT_TIME;
-                    
+
                 } else {
-                    timerclick.jLabel_countDownSetText(counter-1 + "sec");
-                    //jLabel_countDown.setText(counter-1 + "sec");
+                    timerclick.jLabel_countDownSetText(counter - 1 + "sec");
                     counter--;
                 }
-            //System.out.println("Counter is: " + counter);  
-            } 
+                
+                if (quizengine.getRound() ==0) {
+                    System.out.println("Game over!");
+                    currentPanel = 5;
+                    isNavigation = true;
+                    isQuiz = false;
+                    add(statistics);
+                    statistics.setVisible(true);
+                    timerclick.setVisible(false);
+                    jLabel_star.setVisible(false);
+                    
+                    jLabel_next.setVisible(true);
+                    timer.stop();
+                    
+                }
+            }
         };
-        
+
         counter = COUNT_TIME;
-        timer = new Timer(DELAY, action);   
+        timer = new Timer(DELAY, action);
         timer.setInitialDelay(0);
         timer.setRepeats(true);
         timer.start();
         setVisible(true);
     }
-    
+
     public int randomPosX() {
-        posX = random.nextInt(700)+30;
+        posX = random.nextInt(700) + 30;
         return posX;
     }
-    
+
     public int randomPosY() {
-        posY = random.nextInt(500)+30;
+        posY = random.nextInt(500) + 30;
         return posY;
     }
-    
-    public void jLabel_starSetRandomLocation() {
-        jLabel_star.setLocation(randomPosX(), randomPosY());
-    }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel jLabel_next;
