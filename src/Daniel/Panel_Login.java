@@ -50,6 +50,7 @@ public class Panel_Login extends javax.swing.JPanel {
         jLabel_nickname.setText("Nickname");
 
         jText_boarding.setFont(new java.awt.Font("Tunga", 1, 24)); // NOI18N
+        jText_boarding.setToolTipText("Enter your boardingnumber shown on your ticket");
         jText_boarding.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jText_boardingActionPerformed(evt);
@@ -57,6 +58,7 @@ public class Panel_Login extends javax.swing.JPanel {
         });
 
         jText_nickname.setFont(new java.awt.Font("Tunga", 0, 18)); // NOI18N
+        jText_nickname.setToolTipText("Enter a nickname of your own choice");
         jText_nickname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jText_nicknameActionPerformed(evt);
@@ -68,8 +70,6 @@ public class Panel_Login extends javax.swing.JPanel {
 
         jLabel_text2.setFont(new java.awt.Font("Tunga", 1, 48)); // NOI18N
         jLabel_text2.setText("FLIGHT TICKET");
-
-        jLabel_flightTicket.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\flightTicket.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

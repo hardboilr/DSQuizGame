@@ -7,45 +7,38 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-    /**
-     * This class handles writing to and from file.
-     *
-     * The methods are static so they can be called without making an object of
-     * the class. If the application is designed with frequent file writing and
-     * reading the a non-static method should be used instead.
-     *
-     *  EXAMPLE OF SAVING TO FILE:       
-     *  ArrayList<String> as = new ArrayList<String>();
-        as.add("Peter,3,8,12,13");
-        as.add("Linda,18,2,4,5");
-        as.add("Bob,8,12,4,6");
-         
-        FileHandlerStat.savePersons(as, "persons.txt");  
-        
-        EXAMPLE OF LOADING FROM FILE:
-        ArrayList<String> outof = new ArrayList<String>();
-        outof = FileHandlerStat.load("persons.txt");
-        for (String line : outof) {
-            System.out.println("Person: " + line);
-        }   
-     * 
-     * @author Peter Lorensen
-     */
-
-public class FileHandler
-{
+/**
+ * This class handles writing to and from file.
+ *
+ * The methods are static so they can be called without making an object of the
+ * class. If the application is designed with frequent file writing and reading
+ * the a non-static method should be used instead.
+ *
+ * EXAMPLE OF SAVING TO FILE: ArrayList<String> as = new ArrayList<String>();
+ * as.add("Peter,3,8,12,13"); as.add("Linda,18,2,4,5"); as.add("Bob,8,12,4,6");
+ *
+ * FileHandlerStat.savePersons(as, "persons.txt"); * EXAMPLE OF LOADING FROM
+ * FILE: ArrayList<String> outof = new ArrayList<String>(); outof =
+ * FileHandlerStat.load("persons.txt"); for (String line : outof) {
+ * System.out.println("Person: " + line); }
+ *
+ * @author Peter Lorensen
+ */
+public class FileHandler {
 
     /**
-     * The method loads strings from disk. The file resides in the project folder.
+     * The method loads strings from disk. The file resides in the project
+     * folder.
      *
      * Make sure to check for null before using the return value!
      *
-     * @param filename String the name of the file (that is located in the project folder).
-     * @return and ArrayList<String> were each String object is one line in the file.
-     * If something goes wrong and an exception is raised this method will return null!
+     * @param filename String the name of the file (that is located in the
+     * project folder).
+     * @return and ArrayList<String> were each String object is one line in the
+     * file. If something goes wrong and an exception is raised this method will
+     * return null!
      */
-    public static ArrayList<Person> load(String filename)
-    {
+    public static ArrayList<Person> load(String filename) {
         Scanner file_scanner = null;
         ArrayList<Person> stringArray = new ArrayList<Person>();
 
@@ -61,50 +54,50 @@ public class FileHandler
             String[] personAtt = null;
 
             try {
-                String person = file_scanner.nextLine();
+                //String person = file_scanner.nextLine();
                 //System.out.println(person);
-                personAtt = person.split(",");
+                //personAtt = person.split(",");
+                personAtt = file_scanner.next().split(",");
             } catch (NoSuchElementException e) {
                 file_scanner.close();
                 System.out.println("Size: " + stringArray.size());
                 return stringArray;
-            }   
-
-//            int num1 = Integer.parseInt(personAtt[1]);
+            }
+            //int num1 = Integer.parseInt(personAtt[2]);
 //            int num2 = Integer.parseInt(personAtt[2]);
 //            int num3 = Integer.parseInt(personAtt[3]);
 //            int num4 = Integer.parseInt(personAtt[4]);
 
-            Person p = new Person(personAtt[0], personAtt[1]);
-            //System.out.println(p);
+            Person p = new Person(personAtt[0], personAtt[1], personAtt[2]);
+            System.out.println(p);
             stringArray.add(p); //Reading in a single line and saving in the ArrayList
         }
 
-        
-        
         file_scanner.close();  //Closing the file
         return stringArray;    //returning the arraylist
     }
 
     /**
-     * This method saves an ArrayList of strings to disk.
-     * Each string object in this array will be one line in the text file. 
-     * The text file is overwritten, what ever was in there is lost. 
+     * This method saves an ArrayList of strings to disk. Each string object in
+     * this array will be one line in the text file. The text file is
+     * overwritten, what ever was in there is lost.
      *
-     * @param stringArray ArrayList<String> Each String object in this array will be 
-     * saved as one line in the text file. 
-     * @params filename String the name of the file (that is located in the project folder).
+     * @param stringArray ArrayList<String> Each String object in this array
+     * will be saved as one line in the text file.
+     * @params filename String the name of the file (that is located in the
+     * project folder).
      * @return true if everything went well. False if an exception was raised.
      */
-    public static boolean savePersons(ArrayList<Person> stringArray, String filename)
-    {
-        if( stringArray == null ) { return false;  }  //Checking parameter for null.
+    public static boolean savePersons(ArrayList<Person> stringArray, String filename) {
+        if (stringArray == null) {
+            return false;
+        }  //Checking parameter for null.
         FileWriter output;  //Creating reference for filewriter.
-        
+
         try {
-                output = new FileWriter(new File(filename));  //Opening connection to file.
-                for (Person personline : stringArray) {   //running through the ArrayList.                    
-                    output.write(personline.toString() + "\n");  //Each String object is written as a line in file.
+            output = new FileWriter(new File(filename));  //Opening connection to file.
+            for (Person personline : stringArray) {   //running through the ArrayList.                    
+                output.write(personline.toString() + "\n");  //Each String object is written as a line in file.
             }
 
             output.close();  //Closing the file
