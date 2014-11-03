@@ -152,25 +152,10 @@ public class Panel_TimerClick extends javax.swing.JPanel {
         jLabel_background.setVisible(false);
         jLabel_countDown.setVisible(false);
         jLabel_star.setVisible(false);
-
-        //this.setVisible(false);
+        
         quiz = new Panel_QuizGUI(quizControl);
         this.setLayout(new BorderLayout());
         this.add(quiz, BorderLayout.CENTER);
-        quiz.setVisible(true);
-        if(quiz.getDone() == true)
-        {
-            System.out.println("Nu er labels synlige!");
-            setLabelVisibility();
-            
-            
-        } 
-        
-        
-        
-        
-        
-        
     }//GEN-LAST:event_jLabel_starMouseClicked
     
     public void setLabelVisibility() {

@@ -173,7 +173,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
             jMainImage.setVisible(false);
             //setQuiz();
             this.setVisible(false);
-            done = true;
+            
 
         }
     }//GEN-LAST:event_jNextButtonActionPerformed
@@ -212,7 +212,6 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
      * @param args the command line arguments
      */
     public void setQuiz() {
-        done = false;
         quiz.getFile(quiz.getRandomFile());
 
         String quizType = quiz.getQuiztype();
@@ -251,9 +250,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jPictureLabel4.setIcon(selectImage4);
     }
 
-    public boolean getDone() {
-        return done;
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton jAnswer1;
