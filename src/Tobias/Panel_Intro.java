@@ -29,7 +29,10 @@ public class Panel_Intro extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jLabel_logo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Daniel\\SkyDrive\\Privat\\Cph business datamatiker\\1 semester\\Netbeans projekter\\DSQuizGame\\art\\images\\backgroundImages\\cphairport.png")); // NOI18N
         jLabel_logo.setOpaque(true);
