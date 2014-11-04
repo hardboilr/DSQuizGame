@@ -5,17 +5,25 @@
  */
 package Tobias;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Tobias
  */
 public class Panel_Again extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Panel_Again
-     */
+    private final ImageIcon yes_icon = new ImageIcon("./art/images/icons/yes.png");
+    private final ImageIcon yes_entered_icon = new ImageIcon("./art/images/icons/yes_entered.png");
+    private final ImageIcon no_icon = new ImageIcon("./art/images/icons/no.png");
+    private final ImageIcon no_entered_icon = new ImageIcon("./art/images/icons/no_entered.png");
+   
     public Panel_Again() {
-        initComponents();
+        initComponents(); 
+        jLabel_yes.setIcon(yes_icon);
+        jLabel_no.setIcon(no_icon);
     }
 
     /**
@@ -27,22 +35,42 @@ public class Panel_Again extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel_text = new javax.swing.JLabel();
+        jLabel_no = new javax.swing.JLabel();
+        jLabel_yes = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setOpaque(false);
 
-        jLabel1.setFont(new java.awt.Font("Tunga", 0, 48)); // NOI18N
-        jLabel1.setText("Try again?");
+        jLabel_text.setFont(new java.awt.Font("Tunga", 1, 60)); // NOI18N
+        jLabel_text.setText("Try again?");
 
-        jLabel2.setFont(new java.awt.Font("Tunga", 0, 48)); // NOI18N
-        jLabel2.setText("No");
+        jLabel_no.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\no.png")); // NOI18N
+        jLabel_no.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_noMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_noMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel_noMousePressed(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("Tunga", 0, 48)); // NOI18N
-        jLabel3.setText("Yes");
+        jLabel_yes.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\yes.png")); // NOI18N
+        jLabel_yes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_yesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_yesMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel_yesMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -50,38 +78,59 @@ public class Panel_Again extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(304, 304, 304)
-                .addComponent(jLabel1)
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addComponent(jLabel_text)
+                .addContainerGap(256, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(277, 277, 277))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(234, 234, 234)
-                    .addComponent(jLabel3)
-                    .addContainerGap(501, Short.MAX_VALUE)))
+                .addComponent(jLabel_yes)
+                .addGap(107, 107, 107)
+                .addComponent(jLabel_no)
+                .addGap(197, 197, 197))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(86, 86, 86)
-                .addComponent(jLabel1)
-                .addGap(80, 80, 80)
-                .addComponent(jLabel2)
-                .addContainerGap(262, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(255, 255, 255)
-                    .addComponent(jLabel3)
-                    .addContainerGap(259, Short.MAX_VALUE)))
+                .addComponent(jLabel_text)
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel_no)
+                    .addComponent(jLabel_yes))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel_yesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_yesMouseEntered
+        jLabel_yes.setIcon(yes_entered_icon);
+    }//GEN-LAST:event_jLabel_yesMouseEntered
+
+    private void jLabel_yesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_yesMouseExited
+        jLabel_yes.setIcon(yes_icon);
+    }//GEN-LAST:event_jLabel_yesMouseExited
+
+    private void jLabel_noMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_noMouseEntered
+        jLabel_no.setIcon(no_entered_icon);
+    }//GEN-LAST:event_jLabel_noMouseEntered
+
+    private void jLabel_noMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_noMouseExited
+        jLabel_no.setIcon(no_icon);
+    }//GEN-LAST:event_jLabel_noMouseExited
+
+    private void jLabel_noMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_noMousePressed
+        System.exit(0);
+    }//GEN-LAST:event_jLabel_noMousePressed
+
+    private void jLabel_yesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_yesMousePressed
+        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this); 
+        topFrame.setVisible(false);
+        topFrame.dispose();
+        GUI_Main restart = new GUI_Main();
+    }//GEN-LAST:event_jLabel_yesMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel_no;
+    private javax.swing.JLabel jLabel_text;
+    private javax.swing.JLabel jLabel_yes;
     // End of variables declaration//GEN-END:variables
 }
