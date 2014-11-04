@@ -20,7 +20,7 @@ public class QuizControl {
     ArrayList<String> pictureURL;
     ArrayList<String> questionFilenameUsed = new ArrayList();
     ArrayList<String> questionUsed = new ArrayList();
-    String[][] statistics = new String[3][10];
+    String[][] statistics = new String[3][10]; //For statistics
     int x = 0;
     int y = 0;
     
