@@ -64,11 +64,18 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jQuestion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jQuestion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        buttonGroup1.add(jAnswer1);
+
+        buttonGroup1.add(jAnswer2);
         jAnswer2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jAnswer2ActionPerformed(evt);
             }
         });
+
+        buttonGroup1.add(jAnswer3);
+
+        buttonGroup1.add(jAnswer4);
 
         jPictureLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
@@ -102,26 +109,30 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(308, 308, 308)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jAnswer3)
-                    .addComponent(jAnswer4))
-                .addContainerGap(471, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jAnswer3)
+                            .addComponent(jAnswer4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(259, 259, 259)
+                        .addComponent(jPictureLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(401, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(60, 60, 60)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPictureLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(50, 50, 50)
-                                    .addComponent(jAnswer1)))
-                            .addGap(60, 60, 60)
-                            .addComponent(jPictureLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(60, 60, 60)
+                                    .addGap(110, 110, 110)
+                                    .addComponent(jAnswer1))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(60, 60, 60)
+                                    .addComponent(jPictureLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(249, 249, 249)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jMainImage, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -142,7 +153,9 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(311, Short.MAX_VALUE)
+                .addContainerGap(169, Short.MAX_VALUE)
+                .addComponent(jPictureLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jAnswer3)
                 .addGap(169, 169, 169)
                 .addComponent(jAnswer4)
@@ -157,7 +170,6 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
                             .addComponent(jPictureLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
                             .addComponent(jAnswer1))
-                        .addComponent(jPictureLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jMainImage, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(80, 80, 80)
@@ -190,9 +202,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
     private void jPlayVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPlayVideoButtonActionPerformed
         try {
             Desktop.getDesktop().browse(new URL(quiz.getQuizTypeUrl()).toURI());
-        } catch (IOException ex) {
-            Logger.getLogger(Panel_QuizGUI.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (URISyntaxException ex) {
+        } catch (IOException | URISyntaxException ex) {
             Logger.getLogger(Panel_QuizGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jPlayVideoButtonActionPerformed
@@ -243,16 +253,23 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jAnswer4.setText(quiz.getAnswer().get(3));
 
         ImageIcon selectImage = new ImageIcon(quiz.getURLS().get(0));
+        System.out.println(selectImage);
         jPictureLabel1.setIcon(selectImage);
+        jPictureLabel1.setSize(selectImage.getIconWidth(), selectImage.getIconHeight());
 
         ImageIcon selectImage2 = new ImageIcon(quiz.getURLS().get(1));
         jPictureLabel2.setIcon(selectImage2);
+        jPictureLabel2.setSize(selectImage2.getIconWidth(), selectImage2.getIconHeight());
+        
 
         ImageIcon selectImage3 = new ImageIcon(quiz.getURLS().get(2));
         jPictureLabel3.setIcon(selectImage3);
+        jPictureLabel3.setSize(selectImage3.getIconWidth(), selectImage3.getIconHeight());
 
         ImageIcon selectImage4 = new ImageIcon(quiz.getURLS().get(3));
         jPictureLabel4.setIcon(selectImage4);
+        jPictureLabel4.setSize(selectImage4.getIconWidth(), selectImage4.getIconHeight());
+
     }
 
     
