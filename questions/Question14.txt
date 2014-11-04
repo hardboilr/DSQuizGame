@@ -7,4 +7,4 @@ The Beatles(r)
 .\art\images\resized\Pink_Floyd.jpg
 .\art\images\resized\Sugarloaf.jpg
 .\art\images\resized\Aerosmith.jpg
-.\art\images\resized\The_Beatles.jpg
+.\art\images\resized\The_Beatles.png

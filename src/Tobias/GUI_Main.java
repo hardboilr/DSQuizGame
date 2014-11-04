@@ -314,6 +314,7 @@ public class GUI_Main extends javax.swing.JFrame {
                     isNavigation = true;
                     isQuiz = false;
                     add(statistics);
+                    statistics.setTable(quizControl.getStatistics());
                     statistics.setVisible(true);
                     timerclick.setVisible(false);
                     jLabel_star.setVisible(false);

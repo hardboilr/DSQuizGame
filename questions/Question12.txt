@@ -7,4 +7,4 @@ Benjamin Franklin(r)
 .\art\images\resized\Stephen_Hawkin.jpg
 .\art\images\resized\isaac_newton.jpg
 .\art\images\resized\Charles_Darwin.jpg
-.\art\images\resized\Benjami_Franklin.jpg
+.\art\images\resized\Benjamin_Franklin.jpg
