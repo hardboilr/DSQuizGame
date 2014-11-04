@@ -13,8 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
-
-
 /**
  *
  * @author Andreas Styltsvig
@@ -23,10 +21,12 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
 
     QuizControl quiz;
     boolean done;
+
     /**
      * Creates new form Panel_QuizGUI
      */
     public Panel_QuizGUI(QuizControl quiz) {
+
         initComponents();
         jPlayVideoButton.setVisible(false);
         this.quiz = quiz;
@@ -60,11 +60,14 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jQuestion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jQuestion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 797, 85));
 
         buttonGroup1.add(jAnswer1);
+        add(jAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
         buttonGroup1.add(jAnswer2);
         jAnswer2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,18 +75,33 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
                 jAnswer2ActionPerformed(evt);
             }
         });
+        add(jAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, -1, -1));
 
         buttonGroup1.add(jAnswer3);
+        add(jAnswer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
 
         buttonGroup1.add(jAnswer4);
+        add(jAnswer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, -1, -1));
 
+        jPictureLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPictureLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPictureLabel1.setIconTextGap(50);
+        add(jPictureLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 140, 140));
 
+        jPictureLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPictureLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPictureLabel2.setIconTextGap(50);
+        add(jPictureLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 140, 140));
 
+        jPictureLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPictureLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPictureLabel3.setIconTextGap(50);
+        add(jPictureLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 140, 140));
 
+        jPictureLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPictureLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPictureLabel4.setIconTextGap(50);
+        add(jPictureLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 140, 140));
 
         jNextButton.setText("Next");
         jNextButton.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +109,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
                 jNextButtonActionPerformed(evt);
             }
         });
+        add(jNextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1109, 446, -1, -1));
 
         jPlayVideoButton.setText("Play Video!");
         jPlayVideoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -98,91 +117,13 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
                 jPlayVideoButtonActionPerformed(evt);
             }
         });
+        add(jPlayVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, -1, -1));
 
         jMainImage.setText("                                                ");
         jMainImage.setToolTipText("");
         jMainImage.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMainImage.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(308, 308, 308)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jAnswer3)
-                            .addComponent(jAnswer4)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
-                        .addComponent(jPictureLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(401, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(110, 110, 110)
-                                    .addComponent(jAnswer1))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(60, 60, 60)
-                                    .addComponent(jPictureLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(249, 249, 249)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jMainImage, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(110, 110, 110)
-                                    .addComponent(jPlayVideoButton))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(60, 60, 60)
-                            .addComponent(jPictureLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(60, 60, 60)
-                            .addComponent(jPictureLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(709, 709, 709)
-                            .addComponent(jNextButton))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(120, 120, 120)
-                            .addComponent(jAnswer2)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(169, Short.MAX_VALUE)
-                .addComponent(jPictureLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jAnswer3)
-                .addGap(169, 169, 169)
-                .addComponent(jAnswer4)
-                .addGap(78, 78, 78))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(47, 47, 47)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jPictureLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(jAnswer1))
-                        .addComponent(jMainImage, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(80, 80, 80)
-                            .addComponent(jPlayVideoButton)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPictureLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPictureLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(47, 47, 47)
-                            .addComponent(jNextButton)))
-                    .addComponent(jAnswer2)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        add(jMainImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 310, 190));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jAnswer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAnswer2ActionPerformed
@@ -209,16 +150,34 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
 
     public boolean compareButtonAndRightAnswer() {
         if (jAnswer1.isSelected()) {
-            return jAnswer1.getText().equals(quiz.getRightAnswer());
+            String text = jAnswer1.getText();
+            boolean result = text.equals(quiz.getRightAnswer());
+            quiz.setStatistics(text, result);
+
+            return result;
         }
         if (jAnswer2.isSelected()) {
-            return jAnswer2.getText().equals(quiz.getRightAnswer());
+            String text = jAnswer2.getText();
+            boolean result = text.equals(quiz.getRightAnswer());
+            quiz.setStatistics(text, result);
+
+            return result;
         }
         if (jAnswer3.isSelected()) {
-            return jAnswer3.getText().equals(quiz.getRightAnswer());
+
+            String text = jAnswer3.getText();
+            boolean result = text.equals(quiz.getRightAnswer());
+            quiz.setStatistics(text, result);
+
+            return result;
         }
         if (jAnswer4.isSelected()) {
-            return jAnswer4.getText().equals(quiz.getRightAnswer());
+
+            String text = jAnswer4.getText();
+            boolean result = text.equals(quiz.getRightAnswer());
+            quiz.setStatistics(text, result);
+
+            return result;
         }
         return false;
     }
@@ -252,27 +211,35 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jAnswer3.setText(quiz.getAnswer().get(2));
         jAnswer4.setText(quiz.getAnswer().get(3));
 
-        ImageIcon selectImage = new ImageIcon(quiz.getURLS().get(0));
-        System.out.println(selectImage);
-        jPictureLabel1.setIcon(selectImage);
-        jPictureLabel1.setSize(selectImage.getIconWidth(), selectImage.getIconHeight());
+        if (quiz.getURLS().get(0).isEmpty()) {
 
-        ImageIcon selectImage2 = new ImageIcon(quiz.getURLS().get(1));
-        jPictureLabel2.setIcon(selectImage2);
-        jPictureLabel2.setSize(selectImage2.getIconWidth(), selectImage2.getIconHeight());
-        
+            jPictureLabel1.setBorder(null);
+            jPictureLabel2.setBorder(null);
+            jAnswer2.setLocation(110, 200);
+            jPictureLabel3.setBorder(null);;
+            jPictureLabel4.setBorder(null);
 
-        ImageIcon selectImage3 = new ImageIcon(quiz.getURLS().get(2));
-        jPictureLabel3.setIcon(selectImage3);
-        jPictureLabel3.setSize(selectImage3.getIconWidth(), selectImage3.getIconHeight());
+        } else {
+            ImageIcon selectImage = new ImageIcon(quiz.getURLS().get(0));
+            System.out.println(selectImage);
+            jPictureLabel1.setIcon(selectImage);
+            jPictureLabel1.setSize(selectImage.getIconWidth(), selectImage.getIconHeight());
 
-        ImageIcon selectImage4 = new ImageIcon(quiz.getURLS().get(3));
-        jPictureLabel4.setIcon(selectImage4);
-        jPictureLabel4.setSize(selectImage4.getIconWidth(), selectImage4.getIconHeight());
+            ImageIcon selectImage2 = new ImageIcon(quiz.getURLS().get(1));
+            jPictureLabel2.setIcon(selectImage2);
+            jPictureLabel2.setSize(selectImage2.getIconWidth(), selectImage2.getIconHeight());
 
+            ImageIcon selectImage3 = new ImageIcon(quiz.getURLS().get(2));
+            jPictureLabel3.setIcon(selectImage3);
+            jPictureLabel3.setSize(selectImage3.getIconWidth(), selectImage3.getIconHeight());
+
+            ImageIcon selectImage4 = new ImageIcon(quiz.getURLS().get(3));
+            jPictureLabel4.setIcon(selectImage4);
+            jPictureLabel4.setSize(selectImage4.getIconWidth(), selectImage4.getIconHeight());
+
+        }
     }
 
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton jAnswer1;

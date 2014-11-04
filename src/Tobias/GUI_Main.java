@@ -108,7 +108,6 @@ public class GUI_Main extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel_next.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\next_unselected.png")); // NOI18N
         jLabel_next.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_nextMouseEntered(evt);
@@ -123,7 +122,6 @@ public class GUI_Main extends javax.swing.JFrame {
         getContentPane().add(jLabel_next);
         jLabel_next.setBounds(650, 460, 110, 70);
 
-        jLabel_star.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\icons\\star.png")); // NOI18N
         jLabel_star.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel_starMousePressed(evt);
@@ -278,7 +276,7 @@ public class GUI_Main extends javax.swing.JFrame {
     public void Quiz() {
         //grab data from quiz
         quiz.compareButtonAndRightAnswer();
-
+        
         //go back to timed panel
         timer.start();
         timerclick = new Panel_TimerClick();
@@ -316,6 +314,7 @@ public class GUI_Main extends javax.swing.JFrame {
                     isNavigation = true;
                     isQuiz = false;
                     add(statistics);
+                    statistics.setTable(quizControl.getStatistics());
                     statistics.setVisible(true);
                     timerclick.setVisible(false);
                     jLabel_star.setVisible(false);
