@@ -24,10 +24,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" pref="438" max="-2" attributes="0"/>
                   <Component id="jLabel_logo" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel3" alignment="0" min="-2" pref="396" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel3" alignment="0" min="-2" pref="396" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -53,7 +51,7 @@
     <Component class="javax.swing.JLabel" name="jLabel_logo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Daniel\SkyDrive\Privat\Cph business datamatiker\1 semester\Netbeans projekter\DSQuizGame\art\images\backgroundImages\cphairport.png"/>
+          <Image iconType="2" name="C:\Users\Tobias\Desktop\Tobias dropbox\Dropbox\Datamatiker\1. semester\Programming\JAVA\Obligatoriske afleveringer\4_DAT-Service\DSQuizGame\art\images\backgroundImages\cphairport.png"/>
         </Property>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>

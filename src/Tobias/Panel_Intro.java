@@ -31,7 +31,7 @@ public class Panel_Intro extends javax.swing.JPanel {
 
         setOpaque(false);
 
-        jLabel_logo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Daniel\\SkyDrive\\Privat\\Cph business datamatiker\\1 semester\\Netbeans projekter\\DSQuizGame\\art\\images\\backgroundImages\\cphairport.png")); // NOI18N
+        jLabel_logo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\backgroundImages\\cphairport.png")); // NOI18N
         jLabel_logo.setOpaque(true);
 
         jLabel1.setFont(new java.awt.Font("Tunga", 1, 40)); // NOI18N
@@ -52,9 +52,8 @@ public class Panel_Intro extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_logo)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
