@@ -176,10 +176,15 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
             String text = jAnswer4.getText();
             boolean result = text.equals(quiz.getRightAnswer());
             quiz.setStatistics(text, result);
-
             return result;
         }
+        else
+        {
+            String text = "You havent choosen any answer";
+            boolean result = false;
+            quiz.setStatistics(text, result);
         return false;
+        }
     }
 
     /**
