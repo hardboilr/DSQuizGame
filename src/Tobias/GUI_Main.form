@@ -37,11 +37,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel_next">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Tobias\Desktop\Tobias dropbox\Dropbox\Datamatiker\1. semester\Programming\JAVA\Obligatoriske afleveringer\4_DAT-Service\DSQuizGame\art\images\icons\next_unselected.png"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_nextMouseEntered"/>
         <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_nextMouseExited"/>
@@ -67,11 +62,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_back">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Tobias\Desktop\Tobias dropbox\Dropbox\Datamatiker\1. semester\Programming\JAVA\Obligatoriske afleveringer\4_DAT-Service\DSQuizGame\art\images\icons\back_unselected.png"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_backMouseEntered"/>
         <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_backMouseExited"/>
