@@ -1,5 +1,5 @@
 Type: null | .\art\images\missingPiece\missingPiece1_background.png
-Question 7: Find the missing piece
+Question 7: Where is the missing piece?
 piece1(r)
 piece2
 piece3
