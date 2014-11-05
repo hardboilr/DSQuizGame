@@ -6,6 +6,12 @@
 package Tobias;
 
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -107,7 +113,15 @@ public class Panel_Highscore extends javax.swing.JPanel {
             new String [] {
                 "Name", "Score"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -136,17 +150,35 @@ public class Panel_Highscore extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void setTable(ArrayList<String> highscore) {
-        for (int i = 0; i < 60; i++) {
+
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        int rowCount = dm.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dm.removeRow(i);
+        }
+
+        for (int i = 0; i < 50; i++) {
+            dm.addRow(new Object[]{"Name", 0});
             try {
-
                 String name = highscore.get(i).substring(0, highscore.get(i).indexOf("|"));
-
                 int score = Integer.parseInt(highscore.get(i).substring(highscore.get(i).indexOf("|") + 1));
                 jTable1.setValueAt(name, i, 0);
                 jTable1.setValueAt(score, i, 1);
             } catch (Exception e) {
             }
         }
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(jTable1.getModel());
+        jTable1.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>();
+
+        int columnIndexToSort = 1;
+        sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.DESCENDING));
+
+        sorter.setSortKeys(sortKeys);
+        sorter.sort();
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
