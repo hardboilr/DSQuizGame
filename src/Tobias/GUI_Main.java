@@ -77,6 +77,7 @@ public class GUI_Main extends javax.swing.JFrame {
     public GUI_Main() {
 
         initComponents();
+        this.setLocationRelativeTo(null);
         //init icons
         jLabel_next.setIcon(next_unselected_icon);
         jLabel_back.setIcon(back_unselected_icon);

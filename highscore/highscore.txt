@@ -17,3 +17,4 @@ Daniels mor |-1000
 as |-500
 asd |-500
 asd |-300
+adsa |-400
