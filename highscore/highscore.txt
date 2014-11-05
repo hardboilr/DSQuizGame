@@ -1,8 +1,2 @@
 Andreas |500
-lars |200
-lars |400
-åse |-400
-åse |-400
-åse |-800
-nanna |1000
-nanna |1000
+Fjæs |1000

@@ -33,6 +33,7 @@ public class GUI_Main extends javax.swing.JFrame {
     private int posX;
     private int posY;
     
+    private Boolean highscoreSaved;
 
     Random random = new Random();
 
@@ -105,6 +106,8 @@ public class GUI_Main extends javax.swing.JFrame {
         statistics = new Panel_Statistics();
         this.add(statistics, BorderLayout.CENTER);
         statistics.setVisible(false);
+        
+        highscoreSaved = false;
         
         
 
@@ -414,17 +417,22 @@ public class GUI_Main extends javax.swing.JFrame {
     }
     
     public void getHighScoreFile(){
+        if (highscoreSaved != true) {
         highscoreList = FileHandler.load("./highscore/highscore.txt");
         System.out.println(highscoreList);
+        }
     }
     
     
     
     public void setHighscore(){
+        if (highscoreSaved != true) {
         int score = statistics.getScore();
         String info = personInfo.getName() +" |"+score;
         highscoreList.add(info);
         FileHandler.savePersons(highscoreList, "./highscore/highscore.txt");
+        }
+        highscoreSaved = true;
     }
     
 
