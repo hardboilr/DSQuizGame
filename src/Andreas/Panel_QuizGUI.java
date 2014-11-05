@@ -5,6 +5,7 @@
  */
 package Andreas;
 
+import java.awt.Color;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -43,7 +44,8 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jQuestion = new javax.swing.JLabel();
+        jScrollPane_question = new javax.swing.JScrollPane();
+        jTextArea_question = new javax.swing.JTextArea();
         jAnswer1 = new javax.swing.JRadioButton();
         jAnswer2 = new javax.swing.JRadioButton();
         jAnswer3 = new javax.swing.JRadioButton();
@@ -55,6 +57,8 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jNextButton = new javax.swing.JButton();
         jPlayVideoButton = new javax.swing.JButton();
         jMainImage = new javax.swing.JLabel();
+        jLabel_speechbobble = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -62,9 +66,21 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jQuestion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jQuestion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(jQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 797, 85));
+        jScrollPane_question.setBorder(null);
+        jScrollPane_question.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane_question.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane_question.setOpaque(false);
+
+        jTextArea_question.setEditable(false);
+        jTextArea_question.setColumns(20);
+        jTextArea_question.setFont(new java.awt.Font("Tunga", 0, 24)); // NOI18N
+        jTextArea_question.setLineWrap(true);
+        jTextArea_question.setRows(5);
+        jTextArea_question.setText("Jack the Ripper is a famous serial killer who never got caught, but which year did he appear?\n\n");
+        jTextArea_question.setWrapStyleWord(true);
+        jScrollPane_question.setViewportView(jTextArea_question);
+
+        add(jScrollPane_question, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 580, 100));
 
         buttonGroup1.add(jAnswer1);
         add(jAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
@@ -124,6 +140,12 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jMainImage.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMainImage.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         add(jMainImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 310, 190));
+
+        jLabel_speechbobble.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\character\\speechbobble.png")); // NOI18N
+        add(jLabel_speechbobble, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\character\\child_1_entered.png")); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jAnswer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAnswer2ActionPerformed
@@ -210,7 +232,10 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
                 break;
         }
 
-        jQuestion.setText(quiz.getQuestion());
+        //tobias test
+        jTextArea_question.setText(quiz.getQuestion());
+        jTextArea_question.setBackground(new Color(255,255,255, 0));
+        
         jAnswer1.setText(quiz.getAnswer().get(0));
         jAnswer2.setText(quiz.getAnswer().get(1));
         jAnswer3.setText(quiz.getAnswer().get(2));
@@ -251,6 +276,8 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
     private javax.swing.JRadioButton jAnswer2;
     private javax.swing.JRadioButton jAnswer3;
     private javax.swing.JRadioButton jAnswer4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_speechbobble;
     private javax.swing.JLabel jMainImage;
     private javax.swing.JButton jNextButton;
     private javax.swing.JLabel jPictureLabel1;
@@ -258,6 +285,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jPictureLabel3;
     private javax.swing.JLabel jPictureLabel4;
     private javax.swing.JButton jPlayVideoButton;
-    private javax.swing.JLabel jQuestion;
+    private javax.swing.JScrollPane jScrollPane_question;
+    private javax.swing.JTextArea jTextArea_question;
     // End of variables declaration//GEN-END:variables
 }
