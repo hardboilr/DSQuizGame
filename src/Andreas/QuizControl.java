@@ -1,5 +1,6 @@
 package Andreas;
 
+import Tobias.GUI_Main;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -23,6 +24,8 @@ public class QuizControl {
     String[][] statistics = new String[3][10]; //For statistics
     int x = 0;
     int y = 0;
+    
+    String randomFile;
     
 
     Random random = new Random();
@@ -92,8 +95,17 @@ public class QuizControl {
     }
 
     public String getRandomFile() {
-        String randomFile = "./questions/Question" + Integer.toString(random.nextInt(25) + 1) + ".txt";
-        if (questionFilenameUsed.contains(randomFile)) {
+        //check if we need to run adult or child quiz
+        if (GUI_Main.characterselection.getType().equals("woman") || (GUI_Main.characterselection.getType().equals("man"))) {
+            System.out.println("Adult quiz!");
+            randomFile = "./questions/adult/adult_Question" + Integer.toString(random.nextInt(18) + 1) + ".txt";
+        }
+        else {
+            System.out.println("child quiz!");
+            randomFile = "./questions/child/child_Question" + Integer.toString(random.nextInt(18) + 1) + ".txt";
+        }
+        
+        if (questionFilenameUsed.contains(randomFile)) { //checks if the question has already been asked
             return getRandomFile();
         } 
         else 

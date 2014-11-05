@@ -1,25 +1,8 @@
 Andreas |500
-Tobias |-200
-asdasd |600
-Andreas2 |800
-Andreas2 |800
-asd |200
-asd |200
-asd |400
-asd |-400
-Daniels mor |-200
-Daniels mor |-200
-Daniels mor |-400
-Daniels mor |-600
-Daniels mor |-600
-Daniels mor |-800
-Daniels mor |-1000
-as |-500
-asd |-500
-asd |-300
-adsa |-400
-hardboilr |0
-hardboilr |0
-hardboilr |0
-hardboilr |0
-hardboilr |0
+lars |200
+lars |400
+åse |-400
+åse |-400
+åse |-800
+nanna |1000
+nanna |1000
