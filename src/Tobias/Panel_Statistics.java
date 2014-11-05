@@ -94,8 +94,8 @@ public class Panel_Statistics extends javax.swing.JPanel {
                 .addGap(64, 64, 64)
                 .addComponent(jLabel1)
                 .addGap(45, 45, 45)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
