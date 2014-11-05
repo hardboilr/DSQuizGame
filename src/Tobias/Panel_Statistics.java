@@ -15,6 +15,8 @@ import java.util.HashMap;
  */
 public class Panel_Statistics extends javax.swing.JPanel {
 
+    int score = 0;
+    
     /**
      * Creates new form Panel_statistics
      */
@@ -102,9 +104,12 @@ public class Panel_Statistics extends javax.swing.JPanel {
             String question = personStatistics[0][i];
             String answer = personStatistics[1][i];
             String result = personStatistics[2][i];
+            
             jTable1.setValueAt(question, i, 0);
             jTable1.setValueAt(answer, i, 1);
             jTable1.setValueAt(result, i, 2);
+            updateScore(result);
+             System.out.println(score); 
 
            /* 
             if(result.equals("true"))
@@ -116,6 +121,17 @@ public class Panel_Statistics extends javax.swing.JPanel {
         }
                 
     
+    }
+    
+    public void updateScore(String result){
+        if(result.equals("true"))
+            score += 100;
+        if(result.equals("false"))
+            score -= 100;     
+    }
+    
+    public int getScore(){
+        return score;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
