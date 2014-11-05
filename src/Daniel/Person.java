@@ -13,7 +13,7 @@ public class Person {
     private String boardingNumber;
     private String nickname;
     private String type;
-    //private int score;
+    private int score;
 
     @Override
     public String toString() {
@@ -24,8 +24,23 @@ public class Person {
         this.boardingNumber = boardingNumber;
         this.nickname = nickname;
         this.type = type;
-        //this.score = 0;
+        this.score = 0;
     }
     
+    public void setScore(int score){
+        this.score += score;
+    }
     
+    public int getScore(){
+        return score;
+    }
+    
+    public String getName(){
+        return nickname;
+    }
 }
+    
+    
+    
+    
+    

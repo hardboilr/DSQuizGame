@@ -75,7 +75,7 @@ public class FileHandler
      * @return true if everything went well. False if an exception was raised.
      */
 
-    /*
+    
     public static boolean savePersons(ArrayList<String> stringArray, String filename) {
         if (stringArray == null) {
             return false;
@@ -102,7 +102,7 @@ public class FileHandler
     //Tweakede lidt med filehandler, så den tager arraylist af person, og converter til string
     //Replacer alle [ og ] med tom string, da arraylist getrolescore.toString vil ser sådan ud [5,2,1,9]
     //Det vil give rod i fil og gøre det besværligt at loade, derfor fjerner jeg alle [ og ] inden de gemmes i fil ;)
-    public static boolean savePersons2(ArrayList<Person> personArray, String filename) {
+    /*public static boolean savePersons2(ArrayList<Person> personArray, String filename) {
         if (personArray == null) {
             return false;
         }  //Checking parameter for null.
@@ -124,6 +124,5 @@ public class FileHandler
         }
 
         return true;
-    }
-*/
+    }*/
 }//END CLASS

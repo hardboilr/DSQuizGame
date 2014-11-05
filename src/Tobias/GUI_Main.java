@@ -3,6 +3,7 @@
  */
 package Tobias;
 
+import Andreas.FileHandler;
 import Andreas.Panel_QuizGUI;
 import Andreas.QuizControl;
 import Daniel.Person;
@@ -10,6 +11,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -48,9 +51,12 @@ public class GUI_Main extends javax.swing.JFrame {
     QuizControl quizControl = new QuizControl();
     Panel_QuizGUI quiz;
 
+    Person personInfo;
+    
     String boardingNumber;
     String nickname;
     String password;
+    
 
     Boolean wrongPassword = false;
     private Boolean isQuiz = false;
@@ -65,6 +71,8 @@ public class GUI_Main extends javax.swing.JFrame {
     private int counter; // the duration
     private final int DELAY = 1000; // every 1 second
     private boolean timeUp = false;
+    
+    ArrayList<String> highscoreList = new ArrayList();
 
     public GUI_Main() {
 
@@ -280,7 +288,7 @@ public class GUI_Main extends javax.swing.JFrame {
                 break;
             case 3: //QuizRules
                 //Add person object
-                Person p = new Person(boardingNumber, nickname, characterselection.getType());
+                personInfo = new Person(boardingNumber, nickname, characterselection.getType());
                 //System.out.println(characterselection.getType());
                 //System.out.println(p);
                 //quizrules = new Panel_QuizRules();
@@ -308,6 +316,9 @@ public class GUI_Main extends javax.swing.JFrame {
                     
             case 6:
                 //highscore = new Panel_Highscore();
+                getHighScoreFile();
+                setHighscore();
+                highscore.setTable(highscoreList);
                 this.add(highscore);
                 statistics.setVisible(false);
                 again.setVisible(false);
@@ -400,6 +411,21 @@ public class GUI_Main extends javax.swing.JFrame {
     public void closeProgram() {
         this.dispose();
     }
+    
+    public void getHighScoreFile(){
+        highscoreList = FileHandler.load("./highscore/highscore.txt");
+        System.out.println(highscoreList);
+    }
+    
+    
+    
+    public void setHighscore(){
+        int score = statistics.getScore();
+        String info = personInfo.getName() +" |"+score;
+        highscoreList.add(info);
+        FileHandler.savePersons(highscoreList, "./highscore/highscore.txt");
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel jLabel_back;
