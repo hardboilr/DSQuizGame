@@ -124,10 +124,14 @@ public class Panel_Statistics extends javax.swing.JPanel {
     }
     
     public void updateScore(String result){
-        if(result.equals("true"))
+        switch(result){
+            case "true":
             score += 100;
-        if(result.equals("false"))
-            score -= 100;     
+            case "false":
+            score -= 100;
+            default:
+                score += 0;
+    }
     }
     
     public int getScore(){
