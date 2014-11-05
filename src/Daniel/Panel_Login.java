@@ -57,7 +57,7 @@ public class Panel_Login extends javax.swing.JPanel {
             }
         });
 
-        jText_nickname.setFont(new java.awt.Font("Tunga", 0, 18)); // NOI18N
+        jText_nickname.setFont(new java.awt.Font("Tunga", 1, 24)); // NOI18N
         jText_nickname.setToolTipText("Enter a nickname of your own choice");
         jText_nickname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

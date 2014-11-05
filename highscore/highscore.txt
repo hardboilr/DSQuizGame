@@ -1,2 +1,5 @@
 Andreas |500
 Fjæs |1000
+Gunnar |-400
+Jalla |-400
+Lille per |1000

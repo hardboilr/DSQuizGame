@@ -20,6 +20,10 @@ import javax.swing.ImageIcon;
  * @author Andreas Styltsvig
  */
 public class Panel_QuizGUI extends javax.swing.JPanel {
+    
+    private final ImageIcon child_icon = new ImageIcon("./art/images/character/child_1.png");
+    private final ImageIcon speechbubble_icon = new ImageIcon("./art/images/character/speechbubble.png");
+    
 
     QuizControl quiz;
     boolean done;
@@ -34,6 +38,9 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         this.quiz = quiz;
         setQuiz();
         isChildLayout();
+        
+        jLabel_child.setIcon(child_icon);
+        jLabel_speechbobble.setIcon(speechbubble_icon);
     }
 
     /**
