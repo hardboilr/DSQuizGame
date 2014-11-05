@@ -1,0 +1,10 @@
+Type: picture | .\art\images\missingPiece\missingPiece10_background.png
+Question 7: Where is the missing piece?
+piece1
+piece2
+piece3(r)
+piece4
+.\art\images\missingPiece\missingPiece10_piece1.png
+.\art\images\missingPiece\missingPiece10_piece2.png
+.\art\images\missingPiece\missingPiece10_piece3.png
+.\art\images\missingPiece\missingPiece10_piece4.png
