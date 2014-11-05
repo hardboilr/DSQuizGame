@@ -5,6 +5,7 @@
  */
 package Andreas;
 
+import Tobias.GUI_Main;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.IOException;
@@ -32,6 +33,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jPlayVideoButton.setVisible(false);
         this.quiz = quiz;
         setQuiz();
+        isChildLayout();
     }
 
     /**
@@ -58,7 +60,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jPlayVideoButton = new javax.swing.JButton();
         jMainImage = new javax.swing.JLabel();
         jLabel_speechbobble = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_child = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -144,8 +146,8 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
         jLabel_speechbobble.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\character\\speechbobble.png")); // NOI18N
         add(jLabel_speechbobble, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\character\\child_1_entered.png")); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
+        jLabel_child.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tobias\\Desktop\\Tobias dropbox\\Dropbox\\Datamatiker\\1. semester\\Programming\\JAVA\\Obligatoriske afleveringer\\4_DAT-Service\\DSQuizGame\\art\\images\\character\\child_1_entered.png")); // NOI18N
+        add(jLabel_child, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jAnswer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAnswer2ActionPerformed
@@ -232,7 +234,6 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
                 break;
         }
 
-        //tobias test
         jTextArea_question.setText(quiz.getQuestion());
         jTextArea_question.setBackground(new Color(255,255,255, 0));
         
@@ -269,6 +270,16 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
 
         }
     }
+    
+    public void isChildLayout() {
+        String type = GUI_Main.characterselection.getType();
+        if (type == "man" || type == "woman") {
+            jLabel_speechbobble.setVisible(false);
+            jLabel_child.setVisible(false);
+        }
+        
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -276,7 +287,7 @@ public class Panel_QuizGUI extends javax.swing.JPanel {
     private javax.swing.JRadioButton jAnswer2;
     private javax.swing.JRadioButton jAnswer3;
     private javax.swing.JRadioButton jAnswer4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_child;
     private javax.swing.JLabel jLabel_speechbobble;
     private javax.swing.JLabel jMainImage;
     private javax.swing.JButton jNextButton;

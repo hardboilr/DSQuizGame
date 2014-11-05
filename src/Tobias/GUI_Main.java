@@ -38,7 +38,7 @@ public class GUI_Main extends javax.swing.JFrame {
 
     Panel_Intro intro;
     Panel_QuizRules quizrules;
-    Panel_CharacterSelection characterselection;
+    public static Panel_CharacterSelection characterselection;
     Panel_TimerClick timerclick;
     Panel_Highscore highscore;
     Panel_Statistics statistics;
