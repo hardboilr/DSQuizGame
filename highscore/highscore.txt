@@ -2,3 +2,4 @@ Andreas |500
 Tobias |-200
 asdasd |600
 Andreas2 |800
+Andreas2 |800
