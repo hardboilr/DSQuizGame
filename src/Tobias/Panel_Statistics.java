@@ -71,7 +71,6 @@ public class Panel_Statistics extends javax.swing.JPanel {
             }
         });
         jTable1.setToolTipText("");
-        jTable1.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -124,13 +123,17 @@ public class Panel_Statistics extends javax.swing.JPanel {
     }
     
     public void updateScore(String result){
+        System.out.println("result = " + result);
         switch(result){
             case "true":
             score += 100;
+                break;
             case "false":
             score -= 100;
+                break;
             default:
                 score += 0;
+                break;
     }
     }
     
