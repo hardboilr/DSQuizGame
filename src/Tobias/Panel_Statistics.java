@@ -16,13 +16,13 @@ import java.util.HashMap;
 public class Panel_Statistics extends javax.swing.JPanel {
 
     int score = 0;
-    
+
     /**
      * Creates new form Panel_statistics
      */
     public Panel_Statistics() {
         initComponents();
-       
+
     }
 
     /**
@@ -98,46 +98,58 @@ public class Panel_Statistics extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setTable(String[][] personStatistics){
-         for (int i = 0; i < 10; i++) {
+    public void setTable(String[][] personStatistics) {
+        for (int i = 0; i < 10; i++) {
             String question = personStatistics[0][i];
             String answer = personStatistics[1][i];
             String result = personStatistics[2][i];
-            
+            String tmpResult = "";
+            switch (result) {
+                case "true":
+                    tmpResult = "Correct!";
+                    break;
+                case "false":
+                    tmpResult = "False!";
+                    break;
+                default:
+                    tmpResult = result;
+                    break;
+
+            }
+
             jTable1.setValueAt(question, i, 0);
             jTable1.setValueAt(answer, i, 1);
-            jTable1.setValueAt(result, i, 2);
+            jTable1.setValueAt(tmpResult, i, 2);
             updateScore(result);
-             System.out.println(score); 
+            System.out.println(score);
 
-           /* 
-            if(result.equals("true"))
+            /* 
+             if(result.equals("true"))
                 
-                jTable1.setBackground(Color.green);
-            if(result.equals("false"))
-                jTable1.setBackground(Color.red);
-            */
+             jTable1.setBackground(Color.green);
+             if(result.equals("false"))
+             jTable1.setBackground(Color.red);
+             */
         }
-                
-    
+
     }
-    
-    public void updateScore(String result){
+
+    public void updateScore(String result) {
         System.out.println("result = " + result);
-        switch(result){
+        switch (result) {
             case "true":
-            score += 100;
+                score += 100;
                 break;
             case "false":
-            score -= 100;
+                score -= 100;
                 break;
             default:
                 score += 0;
                 break;
+        }
     }
-    }
-    
-    public int getScore(){
+
+    public int getScore() {
         return score;
     }
 

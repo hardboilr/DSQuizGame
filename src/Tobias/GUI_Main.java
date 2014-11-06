@@ -269,11 +269,20 @@ public class GUI_Main extends javax.swing.JFrame {
                 boardingNumber = login.getjText_boarding();
                 nickname = login.getjText_nickname();
                 password = "EH270";
-                if (password.equals(boardingNumber)) 
+                ArrayList<String> file = FileHandler.load("./person/nicknames.txt");
+                if(file.contains(nickname))
                 {
+                    JOptionPane.showMessageDialog(rootPane, "Your nickname is busy");
+                    currentPanel = 1;
+                }
+                else if (password.equals(boardingNumber)) 
+                {
+                    ArrayList tmp = file;
+                    tmp.add(nickname);
                     //go on to character selection
                     //characterselection = new Panel_CharacterSelection();
                     this.add(characterselection);
+                    FileHandler.savePersons(tmp, "./person/nicknames.txt");
                     characterselection.setVisible(true);
                     login.setVisible(false);
                     jLabel_next.setVisible(false);
