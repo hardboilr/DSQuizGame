@@ -16,6 +16,7 @@ import java.util.HashMap;
 public class Panel_Statistics extends javax.swing.JPanel {
 
     int score = 0;
+    String result;
 
     /**
      * Creates new form Panel_statistics
@@ -102,7 +103,7 @@ public class Panel_Statistics extends javax.swing.JPanel {
         for (int i = 0; i < 10; i++) {
             String question = personStatistics[0][i];
             String answer = personStatistics[1][i];
-            String result = personStatistics[2][i];
+            result = personStatistics[2][i];
             String tmpResult = "";
             try {
             switch (result) {

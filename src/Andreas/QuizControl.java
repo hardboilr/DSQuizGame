@@ -99,6 +99,8 @@ public class QuizControl {
         if (GUI_Main.characterselection.getType().equals("woman") || (GUI_Main.characterselection.getType().equals("man"))) {
             System.out.println("Adult quiz!");
             randomFile = "./questions/adult/adult_Question" + Integer.toString(random.nextInt(18) + 1) + ".txt";
+            if(randomFile == null || randomFile.equals(""))
+                getRandomFile();
         }
         else {
             System.out.println("child quiz!");
