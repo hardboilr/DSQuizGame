@@ -1,0 +1,10 @@
+Type: null | 
+Question 3: Which currency is used in England?
+Pound(r)
+Rupiah
+Dollar
+Bath
+.\art\images\resized\Pund.jpg
+.\art\images\resized\Rupiah.jpg
+.\art\images\resized\Dollar.jpg
+.\art\images\resized\Bath.jpg

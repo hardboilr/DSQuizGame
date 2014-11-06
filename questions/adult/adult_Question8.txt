@@ -1,0 +1,9 @@
+Type: picture | .\art\images\resized\Wembley_stadium.jpg
+Question 7: Which London stadium is this?
+Emirates
+Wembley(r)
+Stamford Bridge
+White Hart Lane
+
+
+

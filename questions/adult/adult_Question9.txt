@@ -1,0 +1,11 @@
+Type: null | 
+Question 7: Which religion is the most practiced in England?
+Christianity(r)
+Islam
+Buddishm
+Hinduism
+.\art\images\resized\Christianity.jpg
+.\art\images\resized\Islam.jpg
+.\art\images\resized\Buddishm.jpg
+.\art\images\resized\Hinduism.jpg
+

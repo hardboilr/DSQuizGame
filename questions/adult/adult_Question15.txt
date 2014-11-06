@@ -1,0 +1,10 @@
+Type: null | 
+Question 15: Which kind of entertainment do people often seek, when they are going to London?  
+Theater
+Musical(r)
+Cinema
+Concerts
+.\art\images\resized\theatre.jpg
+.\art\images\resized\musical.jpg
+.\art\images\resized\cinema.jpg
+.\art\images\resized\Concert.jpg
