@@ -1,22 +1,8 @@
 Andreas |500
-Tobias |-200
-asdasd |600
-Andreas2 |800
-Andreas2 |800
-asd |200
-asd |200
-asd |400
-asd |-400
-Daniels mor |-200
-Daniels mor |-200
-Daniels mor |-400
-Daniels mor |-600
-Daniels mor |-600
-Daniels mor |-800
-Daniels mor |-1000
-as |-500
-asd |-500
-asd |-300
-adsa |-400
-asdasd |-600
-asdasd |-1200
+Fjæs |1000
+Gunnar |-400
+Jalla |-400
+Lille per |1000
+Pelle |1000
+aswdasd |1000
+Teatsad |800

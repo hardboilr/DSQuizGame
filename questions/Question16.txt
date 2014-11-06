@@ -1,9 +1,0 @@
-Type: null | 
-Question 15: Which formula 1 team from England won the championship in 2014?  
-Williams-Mercedes(r)
-Red bull
-Mercedes
-McLaren
-
-
-
