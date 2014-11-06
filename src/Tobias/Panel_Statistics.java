@@ -110,7 +110,7 @@ public class Panel_Statistics extends javax.swing.JPanel {
                     tmpResult = "Correct!";
                     break;
                 case "false":
-                    tmpResult = "False!";
+                    tmpResult = "Wrong!";
                     break;
                 default:
                     tmpResult = result;
