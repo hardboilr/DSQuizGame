@@ -158,8 +158,8 @@ public class Panel_Highscore extends javax.swing.JPanel {
             dm.removeRow(i);
         }
 
-        for (int i = 0; i < 50; i++) {
-            dm.addRow(new Object[]{"Name", 0});
+        for (int i = 0; i < highscore.size(); i++) {
+            dm.addRow(new Object[]{"Test", 500});
             try {
                 String name = highscore.get(i).substring(0, highscore.get(i).indexOf("|"));
                 int score = Integer.parseInt(highscore.get(i).substring(highscore.get(i).indexOf("|") + 1));
