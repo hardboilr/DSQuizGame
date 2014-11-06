@@ -104,6 +104,7 @@ public class Panel_Statistics extends javax.swing.JPanel {
             String answer = personStatistics[1][i];
             String result = personStatistics[2][i];
             String tmpResult = "";
+            try {
             switch (result) {
                 case "true":
                     tmpResult = "Correct!";
@@ -115,6 +116,11 @@ public class Panel_Statistics extends javax.swing.JPanel {
                     tmpResult = result;
                     break;
 
+            }
+            }
+            catch (Exception e) {
+                System.out.println("Hov hov!"  
+                        + e);
             }
 
             jTable1.setValueAt(question, i, 0);
