@@ -64,7 +64,7 @@
                       <Component id="jLabel_star" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="129" max="32767" attributes="0"/>
+              <EmptySpace pref="119" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -118,7 +118,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tunga" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Answer the question to get knowledge about your destination  "/>
+        <Property name="text" type="java.lang.String" value="Answer the questions to get knowledge about your destination  "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4_text4">

@@ -1,5 +1,5 @@
 Type: null | 
-Question 17: Which bulding contains the Crown Jewels?  
+Question 17: Which building contains the Crown Jewels?  
 Victoria and Albert Museum
 Royal Museums Greenwich
 Tower of London(r)

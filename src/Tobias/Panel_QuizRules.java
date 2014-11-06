@@ -48,7 +48,7 @@ public class Panel_QuizRules extends javax.swing.JPanel {
         jLabel2_text2.setText("Welcome to the destination game!");
 
         jLabel1_text1.setFont(new java.awt.Font("Tunga", 1, 24)); // NOI18N
-        jLabel1_text1.setText("Answer the question to get knowledge about your destination  ");
+        jLabel1_text1.setText("Answer the questions to get knowledge about your destination  ");
 
         jLabel4_text4.setFont(new java.awt.Font("Tunga", 1, 24)); // NOI18N
         jLabel4_text4.setText("and to collect points to win prices on the plane. ");
@@ -105,7 +105,7 @@ public class Panel_QuizRules extends javax.swing.JPanel {
                         .addComponent(jLabel_arrowRight)
                         .addGap(30, 30, 30)
                         .addComponent(jLabel_star)))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
