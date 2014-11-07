@@ -16,7 +16,10 @@ import java.util.HashMap;
 public class Panel_Statistics extends javax.swing.JPanel {
 
     int score = 0;
+    String question;
+    String answer;
     String result;
+    String tmpResult;
 
     /**
      * Creates new form Panel_statistics
@@ -101,11 +104,10 @@ public class Panel_Statistics extends javax.swing.JPanel {
 
     public void setTable(String[][] personStatistics) {
         for (int i = 0; i < 10; i++) {
-            String question = personStatistics[0][i];
-            String answer = personStatistics[1][i];
+            question = personStatistics[0][i];
+            answer = personStatistics[1][i];
             result = personStatistics[2][i];
-            String tmpResult = "";
-            try {
+            tmpResult = "";
             switch (result) {
                 case "true":
                     tmpResult = "Correct!";
@@ -116,12 +118,6 @@ public class Panel_Statistics extends javax.swing.JPanel {
                 default:
                     tmpResult = result;
                     break;
-
-            }
-            }
-            catch (Exception e) {
-                System.out.println("Hov hov!"  
-                        + e);
             }
 
             jTable1.setValueAt(question, i, 0);
@@ -153,7 +149,7 @@ public class Panel_Statistics extends javax.swing.JPanel {
             default:
                 score += 0;
                 break;
-        }
+        } 
     }
 
     public int getScore() {

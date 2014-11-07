@@ -1,9 +1,0 @@
-
-Random |0
-Tobias |200
-Lars |600
-Karl |400
-West |800
-Palle |800
-Zalle |800
-Per |1000
